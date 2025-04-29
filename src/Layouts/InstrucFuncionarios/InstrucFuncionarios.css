@@ -1,0 +1,491 @@
+body {
+  background-image: url('../../assets/images/fondoApp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: #ffffff; /* Un color de fondo por si hay espacio debajo de la imagen */
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.instruc-funcionarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 93%;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-top: 3%;
+  margin-bottom: 60px;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 3%;
+}
+
+.titulo-principal {
+  position: absolute;
+  top: -70px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: lowercase;
+  text-align: center;
+  width: 100%;
+}
+
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.tarjetas-slider {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Estilos base para todas las tarjetas */
+.tarjeta {
+  width: 25%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f5f5f5;
+  opacity: 1;
+  height: 350px;
+  flex: 0 0 calc(25% - 20px);
+}
+
+/* Tarjeta de calificación fija */
+.tarjeta-califica {
+  position: relative;
+  width: 20%;
+  height: 350px;
+  background: #f0f0f0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 10px;
+}
+
+/* Agregamos el contenedor de imagen para la tarjeta de calificación */
+.tarjeta-califica::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/cesar-augusto.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+.tarjeta-califica h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  z-index: 2;
+  margin: 0;
+}
+
+.tarjeta-califica .ver-mas {
+  position: relative;
+  transform: none;
+  top: auto;
+  left: auto;
+}
+
+/* Animación del slider */
+.tarjetas-slider {
+  animation: none;
+  transition: none;
+}
+
+.imagen-container {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.instructor-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 2s ease-in-out;
+}
+
+/* Aseguramos que las imágenes tengan el mismo tamaño y estilo */
+.tarjeta .imagen-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ver-mas {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  z-index: 3;
+  opacity: 1;
+}
+
+.ver-mas:hover {
+  background: #BFFF71;
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.ver-mas:active {
+  transform: translate(-50%, -48%) scale(0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ajuste específico para el botón en la tarjeta de calificación */
+.tarjeta-califica .ver-mas {
+  position: relative;
+  transform: none;
+  top: auto;
+  left: auto;
+}
+
+.tarjeta-califica .ver-mas:hover {
+  transform: scale(1.05);
+}
+
+.tarjeta-califica .ver-mas:active {
+  transform: scale(0.95);
+}
+
+.tarjeta .calificacion {
+  padding: 8px 15px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  width: fit-content;
+}
+
+.tarjeta-califica .calificacion {
+  background: none;
+  backdrop-filter: none;
+  transform: none;
+  left: 0;
+  width: 100%;
+}
+
+.estrella {
+  color: #ffffff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.estrella.activa {
+  color: #FFD700;
+}
+
+.nombre-instructor {
+  color: #000000;
+  font-size: 2rem;
+  top: 84%;
+  text-transform: lowercase;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding:px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .tarjetas-container {
+    justify-content: center;
+  }
+  
+  .tarjeta {
+    flex: 0 0 calc(25% - 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .tarjeta {
+    flex: 0 0 calc(25% - 15px);
+  }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 992px) {
+  .tarjetas-slider {
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    top: 10%;
+  }
+
+  .tarjeta {
+    width: 30%; /* Aumentamos el ancho para 3 tarjetas */
+    flex: 0 0 calc(30% - 15px);
+  }
+
+  /* Ocultamos las tarjetas extra si hay más de 3 + la de califica */
+  .tarjeta:not(.tarjeta-califica):nth-child(n+4) {
+    display: none;
+  }
+
+  .titulo-principal {
+    top: -60px; /* Ajustamos la posición para que baje un poco */
+    margin-top: 10px; /* Agregamos margen adicional */
+  }
+
+  .titulo-oportunidades {
+    top: 25%; /* Bajamos un poco el título */
+    font-size: 40px; /* Reducimos un poco el tamaño */
+    width: 85%; /* Aseguramos que no se corte */
+  }
+
+  .oportunidades-img {
+    width: calc(100% - 150px);
+    height: calc(100% - 50px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tarjeta {
+    width: 45%; /* Ajustamos para pantallas aún más pequeñas */
+    flex: 0 0 calc(45% - 10px);
+  }
+
+  .titulo-principal {
+    top: -55px;
+    margin-top: 20px;
+    font-size: 2rem; /* Reducimos un poco el tamaño para pantallas más pequeñas */
+    text-align: center;
+  }
+
+  .titulo-oportunidades {
+    top: 30%; /* Bajamos más en pantallas más pequeñas */
+    font-size: 35px;
+    width: 90%;
+    padding: 5px 10px;
+  }
+
+  .oportunidades-img {
+    width: calc(100% - 150px);
+    height: calc(100% - 50px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tarjetas-slider {
+    gap: 3%;
+  }
+
+  .tarjeta {
+    flex: 0 0 calc(25% - 10px);
+  }
+
+  .titulo-oportunidades {
+    top: 35%;
+    font-size: 30px;
+    width: 95%;
+  }
+
+  .oportunidades-img {
+    width: calc(100% - 150px);
+    height: calc(100% - 50px);
+  }
+}
+
+.titulo-oportunidades {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 45px;
+  font-family: 'Poppins', sans-serif;
+  width: 90%;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+.opcion {
+  width: calc(25% - 20px);
+  min-width: 100px;
+  padding: 6px;
+}
+
+.opcion img {
+  width: 70%;
+  height: auto;
+}
+
+.opcion p {
+  font-size: 16px;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Media queries para ajustar tamaños en pantallas más pequeñas */
+@media screen and (max-width: 992px) {
+  .opcion {
+    width: calc(25% - 15px);
+    min-width: 90px;
+  }
+  
+  .opcion p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .opcion {
+    width: calc(25% - 10px);
+    min-width: 80px;
+  }
+  
+  .opcion p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .opcion {
+    width: calc(25% - 8px);
+    min-width: 70px;
+  }
+  
+  .opcion p {
+    font-size: 11px;
+  }
+}
+
+.oportunidades-img {
+  width: calc(100% - 150px); /* Reducimos 150px del ancho */
+  height: calc(100% - 50px); /* Reducimos 50px del alto */
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 50%; /* Centramos la imagen */
+  transform: translateX(-50%); /* Aseguramos que esté centrada */
+}
+
+/* Estilos normales */
+.opciones-container {
+  position: absolute;
+  bottom: 26%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+  width: 70%;
+  z-index: 2;
+}
+
+/* Primer breakpoint para tablets pequeñas */
+@media screen and (max-width: 768px) {
+  .opciones-container {
+    width: 80%;
+    gap: 10%;
+  }
+}
+
+/* Breakpoint específico para celulares */
+@media screen and (max-width: 576px) {
+  .opciones-container {
+    flex-direction: column;
+    bottom: 15%;
+    gap: 25px;
+    width: 50%;
+  }
+
+  .opcion {
+    width: 140px;
+    margin: 0 auto;
+  }
+
+  .opcion p {
+    font-size: 14px;
+  }
+}
+
+/* Celulares muy pequeños */
+@media screen and (max-width: 360px) {
+  .opciones-container {
+    bottom: 10%;
+    gap: 20px;
+  }
+
+  .opcion {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .titulo-oportunidades {
+    font-size: 35px;
+    width: 95%;
+    top: 20%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .titulo-oportunidades {
+    font-size: 30px;
+    width: 90%;
+    top: 15%;
+  }
+}

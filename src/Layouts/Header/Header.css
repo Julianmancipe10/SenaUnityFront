@@ -1,0 +1,139 @@
+/* 🌍 Estilos del Header */
+
+.DivHeader {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+  width: 100%;
+  height: 100px;
+  padding: 0 38px;
+  box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+  position: relative; /* Cambiado de fixed a relative para que se mueva con el scroll */
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+  margin-bottom: 30px;
+}
+  .LogoSena{
+    height: 30px;
+    margin-left: 0%;
+    margin-right: 10px;
+    margin-top: 2%;
+  }
+  
+
+  .centro-comercio-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-left: 10px;
+    display: inline-block;
+    -webkit-text-stroke: 0.2px rgb(255, 247, 247);
+    text-shadow: 0.2px 0.2px 0px rgb(255, 255, 255);
+    margin-top: 1%;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .iten{
+    display: flex;
+    margin-left: 4%;
+    margin-top: 3%;
+  }
+  .iten a{
+    font-size: 18px;
+  }
+
+  /*  Título */
+  .DivHeader h1 {
+    font-size: 65px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 1000;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0;
+    margin-left: 10px; /* Eliminado el margen negativo */
+  }
+  
+  .DivHeader h1 span {
+    color: #bfff71;
+  }
+  
+  /*  Estilos del Nav */
+  nav {
+    display: flex;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-left: 5px;
+    margin-right: 10px; /* Reducido el margen derecho */
+  }
+  
+  /* 📌 Estilos de los enlaces */
+  nav ul li {
+    display: flex;
+    gap: 30px;
+    margin-left: 3px;
+    font-size: 14px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+  
+
+  nav ul li a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #bfff71; /* Verde neón */
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  nav ul li a:hover {
+    color: #BFFF71;
+    -webkit-text-stroke: 0.5px black;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+  
+  
+  .imgSenaUnity {
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 0; /* Eliminado el margen negativo */
+  }
+  
+  .imgSenaUnity:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Eliminado el padding-top ya que el header ya no es fijo */
+

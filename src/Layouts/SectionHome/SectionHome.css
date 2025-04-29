@@ -1,0 +1,47 @@
+.SectionHome{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: flex-start;
+    padding-left: 5%;
+}
+
+.divh1TextHome {
+    font-size: 1rem;
+    max-width: 500px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.divh1TextHome h1 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30%;
+    font-family: 'Times New Roman', serif;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.divh1TextHome h1 span.spanTxt {
+    color: #BFFF71;
+}
+
+.h1Bienvenidos{
+    font-size: 45px;
+    color: #ffffff;
+    font-weight: 1000;
+}
+.divimgUsuario {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.divimgUsuario img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
