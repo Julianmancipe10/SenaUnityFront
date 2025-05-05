@@ -1,23 +1,25 @@
 .slider-container {
-  width: 100%;
+  width: 93%;
+  margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 0;
-  margin-left: 5%;
   height: auto;
   padding: 10px 0;
   align-self: flex-start;
+  margin-left:-5px;
 }
 
 .cards-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: stretch;
   gap: 18px;
   width: 95%;
   position: relative;
+  margin-left: -80px;
 }
 
 .card {
@@ -198,4 +200,44 @@
 /* Ajuste para que Noticias aparezca con espacio debajo de Slider */
 .slider-container + .slider-container {
   margin-top: 40px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #BFFF71;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+.slider-arrow.left {
+  left: 0;
+  transform: translateY(-50%) translateX(-130px);
+}
+.slider-arrow.right {
+  right: 0;
+  transform: translateY(-50%) translateX(-76px);
+}
+.slider-arrow:hover {
+  background: #505050;
+}
+.slider-arrow svg {
+  width: 34px;
+  height: 34px;
+  stroke-width: 6;
+  stroke: #BFFF71;
+  fill: none;
+  display: block;
+  transition: stroke 0.2s;
 }

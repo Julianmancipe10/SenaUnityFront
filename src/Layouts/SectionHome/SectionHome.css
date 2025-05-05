@@ -1,9 +1,11 @@
 .SectionHome{
     display: flex;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     justify-content: flex-start;
     padding-left: 5%;
+    margin-left: -40px;
+    background-color: blue;
 }
 
 .divh1TextHome {

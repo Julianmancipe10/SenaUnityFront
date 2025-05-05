@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "./Slider.css";
 import slider1 from "../../assets/images/slider1.jpg";
@@ -32,6 +32,7 @@ const cards = [
 
 const Slider = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const cardsContainerRef = useRef(null);
 
   // Precargar todas las imágenes antes de mostrarlas
   useEffect(() => {
@@ -58,11 +59,26 @@ const Slider = () => {
     loadImages();
   }, []);
 
+  const scroll = (direction) => {
+    if (cardsContainerRef.current) {
+      const scrollAmount = 320; // Ajusta según el ancho de la card
+      cardsContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <div className="slider-container">
+      <button className="slider-arrow left" onClick={() => scroll('left')}>
+        <svg viewBox="0 0 48 48">
+          <polyline points="30,12 18,24 30,36" stroke="#BFFF71" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </button>
       <h2 className="section-title">Eventos</h2>
       {imagesLoaded ? (
-        <div className="cards-container">
+        <div className="cards-container" ref={cardsContainerRef}>
           {cards.map((card) => (
             <div className="card" key={card.id}>
               <div className="card-image-container">
@@ -92,6 +108,11 @@ const Slider = () => {
       ) : (
         <div className="slider-loading">Cargando contenido...</div>
       )}
+      <button className="slider-arrow right" onClick={() => scroll('right')}>
+        <svg viewBox="0 0 48 48">
+          <polyline points="18,12 30,24 18,36" stroke="#BFFF71" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </button>
     </div>
   );
 };

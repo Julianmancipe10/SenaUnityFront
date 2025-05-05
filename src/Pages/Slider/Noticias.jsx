@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "./Noticias.css"; // Cambiado para usar su propio archivo CSS
 import noticia1 from "../../assets/images/slider1.jpg"; // Temporalmente usamos las mismas imágenes
@@ -32,6 +32,7 @@ const cards = [
 
 const Noticias = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const cardsContainerRef = useRef(null);
 
   // Precargar todas las imágenes antes de mostrarlas
   useEffect(() => {
@@ -58,11 +59,26 @@ const Noticias = () => {
     loadImages();
   }, []);
 
+  const scroll = (direction) => {
+    if (cardsContainerRef.current) {
+      const scrollAmount = 320; // Ajusta según el ancho de la card
+      cardsContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <div className="slider-container">
+      <button className="slider-arrow left" onClick={() => scroll('left')}>
+        <svg viewBox="0 0 48 48">
+          <polyline points="30,12 18,24 30,36" stroke="#BFFF71" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </button>
       <h2 className="section-title">Últimas Noticias</h2>
       {imagesLoaded ? (
-        <div className="cards-container">
+        <div className="cards-container" ref={cardsContainerRef}>
           {cards.map((card) => (
             <div className="card" key={card.id}>
               <div className="card-image-container">
@@ -92,6 +108,11 @@ const Noticias = () => {
       ) : (
         <div className="slider-loading">Cargando noticias...</div>
       )}
+      <button className="slider-arrow right" onClick={() => scroll('right')}>
+        <svg viewBox="0 0 48 48">
+          <polyline points="18,12 30,24 18,36" stroke="#BFFF71" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </button>
     </div>
   );
 };
