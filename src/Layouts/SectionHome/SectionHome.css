@@ -1,16 +1,16 @@
 .SectionHome{
     display: flex;
-    width: 100%;
+    width: 120%;
     margin-top: 80px;
     justify-content: flex-start;
     padding-left: 5%;
-    margin-left: -40px;
+    margin-left: -75px;
     background-color: blue;
 }
 
 .divh1TextHome {
     font-size: 1rem;
-    max-width: 500px;
+    max-width: 800px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -21,6 +21,7 @@
     font-family: 'Times New Roman', serif;
     position: relative;
     transition: color 0.3s ease-in-out;
+    line-height: 1.5;
 }
 
 .divh1TextHome h1 span.spanTxt {

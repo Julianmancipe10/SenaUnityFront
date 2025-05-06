@@ -10,22 +10,22 @@ const cards = [
   {
     id: 1,
     image: slider1,
-    badge: "Marketer",
-    title: "Lorem ipsum dolor sit explicabo adipisicing elit",
+    badge: "Titulo",
+    title: "Pequeña descrpcion del primer evento",
     description: ""
   },
   {
     id: 2,
     image: slider2,
-    badge: "Gamer",
-    title: "Lorem ipsum dolor sit explicabo adipisicing elit",
+    badge: "Titulo",
+    title: "Pequeña descrpcion del segundo evento",
     description: ""
   },
   {
     id: 3,
     image: slider3,
-    badge: "Editor",
-    title: "Lorem ipsum dolor sit explicabo adipisicing elit",
+    badge: "Titulo",
+    title: "Pequeña descrpcion del tercer evento y así sucesivamente",
     description: ""
   }
 ];
@@ -89,8 +89,8 @@ const Slider = () => {
                 />
               </div>
               <div className="card-content">
-                <span className="card-badge">{card.badge}</span>
-                <h3 className="card-title">{card.title}</h3>
+                <span className="card-title">{card.badge}</span>
+                <h3 className="card-description">{card.title}</h3>
                 <a href="#" className="card-link">
                   Ver más
                   <span className="card-button">
