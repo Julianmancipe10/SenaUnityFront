@@ -12,14 +12,14 @@ body {
   margin: 35px auto 0; /* Reducido de 50px a 35px */
   padding: 10px 20px; /* Espaciado interno reducido */
   position: relative; /* Se agregó para manejar "Bienvenidos" y "Ingresar" */
-  gap: 5%; /* Espacio controlado entre elementos */
-  padding-left: 10%; /* Aumentado de 50px a 55px (5px más) */
-  margin-left: 35px; /* Aumentado de 30px a 35px (5px más) */
+  gap: 0%; /* Reducido de 2% a 0% para eliminar el espacio entre elementos */
+  padding-left: 5%; /* Reducido de 10% a 5% */
+  margin-left: 20px; /* Reducido de 35px a 20px */
   overflow-x: hidden;
 }
   
 .text-container { 
-  width: 40%;
+  width: 55%;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -35,9 +35,12 @@ body {
   width: 93%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 20px auto 0; /* Reducido de 120px a 20px porque el header ya no es fijo */
-  padding: 0 40px; /* Espacio en los laterales */
+  justify-content: flex-start;
+  margin: 20px auto 0;
+  padding: 0;
+  padding-left: 5%; /* Ajustado de 7% a 5% para coincidir con el contenedor principal */
+  margin-left: 20px; /* Ajustado de 35px a 20px para coincidir con el contenedor principal */
+  position: relative;
 }
   
 .h1Bienvenidos {
@@ -45,7 +48,10 @@ body {
   font-weight: bold;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  margin: 0; /* Removemos márgenes por defecto */
+  margin: 0;
+  text-align: left; /* Asegura alineación a la izquierda */
+  padding-left: 0; /* Elimina cualquier padding */
+  margin-left: -40px; /* Ajustado para alinear con el SectionHome */
 }
   
 .divh1TextHome {
@@ -75,6 +81,9 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
+  position: absolute; /* Cambio a posicionamiento absoluto */
+  right: 30px; /* Ajustado a 30px para alinearlo con el logo */
+  top: 0; /* Alineado arriba */
 }
   
 .ingresar-wrapper {
@@ -200,7 +209,7 @@ body {
 }
   
 .right-container {
-  width: 55%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

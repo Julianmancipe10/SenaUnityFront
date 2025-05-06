@@ -1,6 +1,5 @@
 import React from 'react'
 import imgLogo from '../../assets/images/Logo_SenaUnity.png'
-import imgLogoSena from '../../assets/images/LogoSena.png'
 import imgLogoSenaGreen from '../../assets/images/Logo-Sena-Green.png'
 import '../Header/Header.css'
 
@@ -10,7 +9,7 @@ export const Header = () => {
         <header className='DivHeader'>
 
             
-            <h1>Sena <span>Unity</span></h1>
+            <h1>Sena<span>Unity</span></h1>
             <img className='LogoSena' src={imgLogoSenaGreen} alt="LogoSena" />
             <div className="logo-container">
                 
