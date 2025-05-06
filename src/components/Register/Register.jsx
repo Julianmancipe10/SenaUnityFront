@@ -7,8 +7,10 @@ import './Register.css';
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
+    nombre: '',
+    apellido: '',
+    correo: '',
+    documento: '',
     password: '',
     confirmPassword: ''
   });
@@ -16,9 +18,9 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
     }));
   };
 
@@ -32,62 +34,103 @@ const Register = () => {
     }
 
     try {
-      await registerUser({
-        username: formData.username,
-        email: formData.email,
-        password: formData.password
-      });
-      navigate('/login');
+      const { confirmPassword, ...userData } = formData;
+      const response = await registerUser(userData);
+      navigate('/dashboard');
     } catch (error) {
-      setError(error.message);
+      setError(error.message || 'Error al registrar usuario');
     }
   };
 
   return (
-    <div className="register-container">
-      <Header />
-      <div className="register-form-container">
-        <h2>Crear cuenta</h2>
-        {error && <div className="error-message">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Nombre de usuario"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo electrónico"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirmar contraseña"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Registrarse</button>
-        </form>
-        <p>
-          ¿Ya tienes una cuenta?{' '}
-          <Link to="/login">Iniciar sesión</Link>
-        </p>
+    <div className="divmayor">
+      <div className="HeaderDiseñoRegistro">
+        <Header />
+      </div>
+
+      <div className="divPrincipal">
+        {/* Sección de Bienvenida */}
+        <div className="bienvenida">
+          <h1 className="txt-Bienvenido">BIENVENIDO</h1>
+          <p className="parrafoBienvenido">
+            Únete a la mejor plataforma de información del SENA
+          </p>
+        </div>
+
+        {/* Sección del Formulario */}
+        <div className="Registro">
+          <h2 className="txt-registrarse">Registrarse</h2>
+
+          {error && <div className="error-message">{error}</div>}
+
+          <form onSubmit={handleSubmit} className="mi-formulario">
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+            <input
+              type="text"
+              name="apellido"
+              placeholder="Apellido"
+              value={formData.apellido}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+            <input
+              type="email"
+              name="correo"
+              placeholder="Correo electrónico"
+              value={formData.correo}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+            <input
+              type="text"
+              name="documento"
+              placeholder="Número de documento"
+              value={formData.documento}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Contraseña"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirmar contraseña"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              className="input-field"
+            />
+
+            <button type="submit" className="btn-Registrarse">
+              Registrarse
+            </button>
+
+            <p className="login-text">
+              ¿Ya tienes cuenta?{" "}
+              <Link to="/login" style={{ color: "blue" }}>
+                Iniciar sesión
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

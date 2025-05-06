@@ -30,12 +30,25 @@ export const loginUser = async (credentials) => {
 export const registerUser = async (userData) => {
     try {
         // Validar datos antes de enviar
-        if (!userData.username || !userData.password || !userData.email) {
+        if (!userData.nombre || !userData.apellido || !userData.correo || !userData.documento || !userData.password) {
             throw new Error('Todos los campos son requeridos');
         }
 
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(userData.correo)) {
+            throw new Error('Formato de email inválido');
+        }
+
+        // Validar longitud de contraseña
         if (userData.password.length < 6) {
             throw new Error('La contraseña debe tener al menos 6 caracteres');
+        }
+
+        // Validar formato de documento (solo números)
+        const documentoRegex = /^\d+$/;
+        if (!documentoRegex.test(userData.documento)) {
+            throw new Error('El documento debe contener solo números');
         }
 
         const response = await fetch(`${API_URL}/auth/register`, {
