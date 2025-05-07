@@ -1,17 +1,37 @@
-.SectionHome{
+.layout-principal {
     display: flex;
-    width: 120%;
-    margin-top: 80px;
-    justify-content: flex-start;
-    padding-left: 5%;
-    margin-left: -75px;
-    background-color: blue;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.SectionHome {
+    flex: 1 1 350px;
+    max-width: 500px;
+    margin-top: 84px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin-left: 20px;
+}
+
+.CardsSection {
+    flex: 2 1 0;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .divh1TextHome {
-    font-size: 1rem;
-    max-width: 800px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
+    align-self: stretch;
+    box-sizing: border-box;
+    flex: 1 1 100%;
+    background-color: inherit;
 }
 
 .divh1TextHome h1 {
@@ -29,7 +49,7 @@
 }
 
 .h1Bienvenidos{
-    font-size: 45px;
+    font-size: 40px;
     color: #ffffff;
     font-weight: 1000;
 }

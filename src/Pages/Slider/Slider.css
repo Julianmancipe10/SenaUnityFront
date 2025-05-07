@@ -19,7 +19,7 @@
   gap: 12px;
   width: 100%;
   position: relative;
-  margin-left: -150px;
+  margin-left: -163px;
 }
 
 .card {
@@ -205,8 +205,8 @@
   height: 2px;
   background-color: #BFFF71;
   margin: 10px auto;
-  max-width: 95%;
-  margin-left: -35px;
+  max-width: 97%;
+  margin-left: -125px;
 }
 
 .slider-arrow {
@@ -217,9 +217,9 @@
   color: #BFFF71;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 10;
   display: flex;
@@ -230,21 +230,21 @@
 }
 
 .slider-arrow.left {
-  left: -120px;
+  left: -190px;
 }
 
 .slider-arrow.right {
-  right: 65px;
+  right: 135px;
 }
 
 .slider-arrow:hover {
   background: #505050;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .slider-arrow svg {
-  width: 34px;
-  height: 34px;
+  width: 37px;
+  height: 37px;
   stroke-width: 6;
   stroke: #BFFF71;
   fill: none;
