@@ -8,12 +8,15 @@ import NuestrasSedes from "../../Layouts/NuestrasSedes/NuestrasSedes";
 import imgUsuario from '../../assets/images/imgUsuario.png';
 import "../Home/Home.css";
 import { Link } from 'react-router-dom';
+import Horario from "../Horarios/Horario";
 
 export const Home = () => {
   return (
     <div>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;1000&display=swap" rel="stylesheet" />
       <Header />
+      
+
       <div className="top-section">
         <h1 className="h1Bienvenidos">BIENVENIDOS</h1>
         <Link to="/LoginPage">

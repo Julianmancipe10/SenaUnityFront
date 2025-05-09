@@ -9,7 +9,9 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import ProfileUser from './Pages/CrearPerfil/ProfileUser';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register'; // Ajustá la ruta si tu carpeta es diferente
-
+import Horario from './Pages/Horarios/Horario';
+import Contacto from './Pages/Contacto/Contacto';
+import Eventos from './Pages/Eventos/Eventos';
 
 function App() {
   useEffect(() => {
@@ -28,6 +30,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<ProfileUser />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/horarios" element={<Horario />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/eventos" element={<Eventos />} />
         </Routes>
       </div>
     </Router>

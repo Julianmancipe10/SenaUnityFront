@@ -2,9 +2,11 @@ import React from 'react'
 import imgLogo from '../../assets/images/Logo_SenaUnity.png'
 import imgLogoSenaGreen from '../../assets/images/Logo-Sena-Green.png'
 import '../Header/Header.css'
+import { Link } from 'react-router-dom';
+
 
 export const Header = () => {
-  return (
+  return ( 
     <div>
         <header className='DivHeader'>
 
@@ -24,10 +26,10 @@ export const Header = () => {
             <nav>
                 <ul>
                     <li className='iten'>
-                        <a href="">Inicio</a>
-                        <a href="">contacto</a>
-                        <a href="">Horarios</a>
-                        <a href="">Eventos</a>
+                    <Link to="/">Inicio</Link>
+                    <Link to="/contacto">Contacto</Link> {/* ← Si tienes esta ruta */}
+                    <Link to="/horarios">Horarios</Link> {/* ← Este es el que importa ahora */}
+                    <Link to="/eventos">Eventos y Noticias</Link> {/* ← Si tienes esta ruta */}
                     </li>
                 </ul>
             </nav>

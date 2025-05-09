@@ -7,7 +7,7 @@ import { loginUser } from '../../services/auth';
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
+    correo: "",
     password: "",
   });
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ const Login = () => {
 
     try {
       const response = await loginUser({
-        username: formData.username,
+        correo: formData.correo,
         password: formData.password
       });
 
@@ -61,10 +61,10 @@ const Login = () => {
 
           <form onSubmit={handleSubmit} className="mi-formulario">
             <input
-              type="text"
-              name="username"
-              placeholder="Usuario"
-              value={formData.username}
+              type="email"
+              name="correo"
+              placeholder="Correo electrónico"
+              value={formData.correo}
               onChange={handleChange}
               required
               className="input-field"
