@@ -6,15 +6,6 @@
     gap: 24px;
 }
 
-.SectionHome {
-    flex: 1 1 350px;
-    max-width: 500px;
-    margin-top: 84px;
-    box-sizing: border-box;
-    padding: 0 16px;
-    margin-left: 20px;
-}
-
 .CardsSection {
     flex: 2 1 0;
     min-width: 0;
@@ -32,6 +23,7 @@
     box-sizing: border-box;
     flex: 1 1 100%;
     background-color: inherit;
+    text-align: left;
 }
 
 .divh1TextHome h1 {
@@ -42,6 +34,7 @@
     position: relative;
     transition: color 0.3s ease-in-out;
     line-height: 1.5;
+    text-align: left;
 }
 
 .divh1TextHome h1 span.spanTxt {

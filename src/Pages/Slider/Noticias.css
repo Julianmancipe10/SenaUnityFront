@@ -9,7 +9,8 @@
   height: auto;
   padding: 10px 0;
   align-self: flex-start;
-  margin-left: 25px;
+  margin-left: 0;
+  overflow: visible;
 }
 
 .noticias-cards-container {
@@ -19,8 +20,9 @@
   gap: 12px;
   width: 100%;
   position: relative;
-  margin-left: -163px;
+  margin-left: 0;
   margin-top: -10px;
+  overflow: visible;
 }
 
 .noticias-card {
@@ -171,7 +173,8 @@
   margin-bottom: 10px;
   margin-top: 20px;
   text-align: center;
-  margin-left: -135px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #56c878;
 }
 
@@ -215,11 +218,11 @@
 }
 
 .noticias-arrow.left {
-  left: -190px;
+  left: 10px;
 }
 
 .noticias-arrow.right {
-  right: 135px;
+  right: 10px;
 }
 
 .noticias-arrow:hover {

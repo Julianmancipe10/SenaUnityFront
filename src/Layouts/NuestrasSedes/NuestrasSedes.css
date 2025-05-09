@@ -55,33 +55,21 @@
   width: 45%;
   height: auto;
   min-height: 150px;
-  transform: translateX(-200%); /* Posición inicial más alejada */
-}
-
-/* Cuando se active la animación */
-.sede-card.aos-animate {
-  transform: translateX(-30%);
-  transition: transform 0.7s ease-out;
-}
-
-/* Posición inicial cuando no está animado */
-.sede-card:not(.aos-animate) {
-  transform: translateX(-500%) !important; /* Mucho más a la izquierda */
 }
 
 .sede-galan {
-  top: 5%;
-  left: -25%;
-}
-
-.sede-comercio {
-  bottom: 5%;
-  left: -25%;
+  top: 10px;
+  left: -260px;
 }
 
 .sede-agroindustrial {
   top: 35%;
-  left: 20%;
+  left: -60px;
+}
+
+.sede-construccion {
+  bottom: 10px;
+  left: -260px;
 }
 
 /* Estilos del título de la sede */
@@ -125,4 +113,12 @@
     max-width: 300px;
     margin: 20px auto;
   }
+}
+
+.opciones-container {
+    position: absolute;
+    bottom: 26%;
+    left: calc(50% - 100px);
+    transform: translateX(-50%);
+    /* ... */
 }

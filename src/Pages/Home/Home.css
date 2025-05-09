@@ -1,62 +1,84 @@
 /* Asegurar que el contenedor principal ocupe toda la pantalla */
 body {
-  overflow-x: hidden;
+  /* Eliminado overflow-x: hidden para permitir que las tarjetas salgan del contenedor */
 }
 
 .home-container {
   display: flex; /* Hace que los elementos se acomoden en una fila */
   align-items: flex-start; /* Cambiado de center a flex-start para alinear desde arriba */
-  justify-content: flex-start; /* Cambiado de space-between a flex-start */
-  max-width: 100%;
+  justify-content: center; /* Cambiado de flex-start a center para centrar horizontalmente */
+  max-width: 90%;
   width: 100%;
-  margin: 35px auto 0; /* Reducido de 50px a 35px */
-  padding: 10px 20px; /* Espaciado interno reducido */
+  margin: 5px auto 0; /* Mantener el margen superior */
+  padding-top: 0; /* Reducido el padding superior a 0 */
+  padding-bottom: 10px; /* Manteniendo el padding inferior */
+  padding-left: 0; /* Eliminado el padding-left para centrar correctamente */
+  padding-right: 20px; /* Manteniendo el padding derecho */
   position: relative; /* Se agregó para manejar "Bienvenidos" y "Ingresar" */
-  gap: 0%; /* Reducido de 2% a 0% para eliminar el espacio entre elementos */
-  padding-left: 5%; /* Reducido de 10% a 5% */
-  margin-left: 20px; /* Reducido de 35px a 20px */
-  overflow-x: hidden;
+  gap: 0; /* Eliminado el gap para unir los contenedores */
+  margin-left: auto; /* Cambiado de 20px a auto para centrar */
+  margin-right: auto; /* Añadido margin-right: auto para centrar */
+  height: calc(100% - 30px); /* Reduciendo la altura total en 30px */
 }
   
 .text-container { 
-  width: 55%;
-  text-align: left;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto; /* Mantener para centrar el contenedor */
+  text-align: left; /* Cambiado de center a left para alinear el texto a la izquierda */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 0;
+  align-items: flex-start; /* Cambiado de center a flex-start para alinear a la izquierda */
+  justify-content: center; /* Mantener centrado verticalmente */
+  margin-top: 28px; /* Ajustado para bajar el texto y alinearlo con las tarjetas */
   padding: 20px 0;
-  align-self: stretch;
-  max-width: 100%;
 }
   
+.comp-card {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Cambiado de flex-start a center */
+  justify-content: flex-start; /* Cambiado de center a flex-start para reducir espacio superior */
+  overflow: visible; /* Añadido para permitir que el contenido se desborde */
+  margin-left: auto; /* Cambiado de 0 a auto */
+  margin-right: auto; /* Añadido margin-right: auto */
+  margin-top: -5px; /* Mantener el margen superior actual */
+  padding-top: 0; /* Asegurar que no haya padding superior */
+  height: calc(100% - 30px); /* Reduciendo la altura total en 30px */
+}
+
 .top-section {
-  width: 93%;
+  width: 90%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin: 20px auto 0;
+  justify-content: center; /* Cambiado de flex-start a center */
+  margin: 20px auto 0; /* Reducido de 20px a 18px para reducir altura */
   padding: 0;
-  padding-left: 5%; /* Ajustado de 7% a 5% para coincidir con el contenedor principal */
-  margin-left: 20px; /* Ajustado de 35px a 20px para coincidir con el contenedor principal */
+  padding-left: 0; /* Eliminado el padding-left para centrar correctamente */
+  margin-left: auto; /* Cambiado de 20px a auto para centrar */
+  margin-right: auto; /* Añadido margin-right: auto para centrar */
   position: relative;
+  height: calc(100% - 4px); /* Reduciendo la altura en 4px */
 }
   
 .h1Bienvenidos {
-  font-size: 4rem;
+  font-size: 4rem; /* Reducido ligeramente de 4rem para reducir altura */
   font-weight: bold;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  text-align: left; /* Asegura alineación a la izquierda */
+  margin: 0 auto; /* Cambiado para centrar */
+  text-align: center; /* Cambiado de left a center */
   padding-left: 0; /* Elimina cualquier padding */
-  margin-left: -40px; /* Ajustado para alinear con el SectionHome */
+  margin-left: 0; /* Eliminado el margen negativo */
+  line-height: 0.95; /* Añadido para reducir la altura */
 }
   
 .divh1TextHome {
   font-size: 1.5rem;
   max-width: 500px;
+  margin: 0 auto; /* Mantener para centrar el contenedor */
+  text-align: left; /* Cambiado de center a left para alinear el texto a la izquierda */
 }
   
 .divh1TextHome h1 {
@@ -66,11 +88,13 @@ body {
   font-family: 'Poppins', sans-serif;
   position: relative;
   transition: color 0.3s ease-in-out;
+  text-align: left; /* Cambiado de center a left para alinear el texto a la izquierda */
 }
   
 .spanTxt {
-  color: #ffffff;
+  color: #BFFF71;
   font-weight: bold;
+  text-align: center; /* Añadido para centrar el texto */
 }
   
 .button-ingresar {
@@ -81,9 +105,13 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  position: absolute; /* Cambio a posicionamiento absoluto */
-  right: 30px; /* Ajustado a 30px para alinearlo con el logo */
-  top: 0; /* Alineado arriba */
+  position: absolute; /* Mantener posicionamiento absoluto */
+  right: 4%; /* Ajustado de 5% a 2% para moverlo más a la derecha */
+  left: auto; /* Eliminado para que no esté centrado */
+  margin: 0; /* Eliminado margin auto */
+  top: 50%; /* Centrado verticalmente */
+  transform: translateY(-50%); /* Centrado verticalmente */
+  width: fit-content; /* Añadido para que el ancho se ajuste al contenido */
 }
   
 .ingresar-wrapper {
@@ -91,14 +119,16 @@ body {
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
+  transform: scale(0.85); /* Reduciendo el tamaño del wrapper */
 }
   
 .ingresar-text {
   color: #ffffff;
   font-weight: 1000;
-  font-size: 16px;
+  font-size: 14px; /* Reducido de 16px a 14px */
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease, text-shadow 0.3s ease, -webkit-text-stroke 0.3s ease, transform 0.3s ease;
+  margin-top: -5px; /* Reduciendo el espacio entre la imagen y el texto */
 }
   
 .button-ingresar:hover .ingresar-text {
@@ -108,9 +138,9 @@ body {
   
 .button-ingresar img {
   background-color: rgb(255, 255, 255);
-  width: 60px;
-  height: 60px;
-  margin-bottom: 20px;
+  width: 50px; /* Reducido de 60px a 50px */
+  height: 50px; /* Reducido de 60px a 50px */
+  margin-bottom: 10px; /* Reducido de 20px a 10px */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 50%;
 }
@@ -126,6 +156,9 @@ body {
   color: #ffffff;
   font-size: 16px;
   font-family: 'Times New Roman', serif;
+  text-align: center; /* Añadido para centrar el texto */
+  margin-left: auto; /* Añadido para centrar */
+  margin-right: auto; /* Añadido para centrar */
 }
   
 @keyframes bookRotate {
@@ -209,7 +242,7 @@ body {
 }
   
 .right-container {
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

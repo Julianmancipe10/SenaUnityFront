@@ -5,11 +5,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 0;
+  margin-top: -20px;
   height: auto;
   padding: 10px 0;
   align-self: flex-start;
-  margin-left: 25px;
+  margin-left: 0;
+  overflow: visible;
 }
 
 .cards-container {
@@ -19,7 +20,8 @@
   gap: 12px;
   width: 100%;
   position: relative;
-  margin-left: -163px;
+  margin-left: 0;
+  overflow: visible;
 }
 
 .card {
@@ -188,10 +190,10 @@
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
   text-align: center;
-  margin-left: -185px;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Ajuste para que Noticias aparezca con espacio debajo de Slider */
@@ -206,7 +208,7 @@
   background-color: #BFFF71;
   margin: 10px auto;
   max-width: 97%;
-  margin-left: -125px;
+  margin-left: 0;
 }
 
 .slider-arrow {
@@ -230,11 +232,11 @@
 }
 
 .slider-arrow.left {
-  left: -190px;
+  left: 10px;
 }
 
 .slider-arrow.right {
-  right: 135px;
+  right: 10px;
 }
 
 .slider-arrow:hover {
@@ -255,3 +257,4 @@
 .noticias-arrow.right {
   right: -50px;
 }
+

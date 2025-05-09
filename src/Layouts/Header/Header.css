@@ -10,12 +10,12 @@
   position: relative; /* Cambiado de fixed a relative para que se mueva con el scroll */
   z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
   border-bottom: 2px solid #ffffff; /* Línea blanca en la parte inferior */
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
   .LogoSena{
     height: 35px;
-    margin-left: -4%;
-    margin-right: px;
+    margin-left: -5%;
+    margin-right: 0;
    
   }
   
@@ -26,7 +26,7 @@
     color: #ffffff;
     font-weight: 500;
     line-height: 1.2;
-    margin-left: -20px;
+    margin-left: -200px;
     display: inline-block;
     -webkit-text-stroke: 0.2px rgb(255, 247, 247);
     text-shadow: 0.2px 0.2px 0px rgb(255, 255, 255);
@@ -130,8 +130,8 @@
     width: auto;
     border-radius: 50%;
     transition: transform 0.3s ease-in-out;
-    margin-left: 0; /* Eliminado el margen negativo */
-    margin-right: 50px; /* Ajustado a 70px para alinearlo con el botón ingresar */
+    margin-left: 0; /* Mantener el margen izquierdo en 0 */
+    margin-right: 75px; /* Aumentado de 25px a 75px para moverlo más a la izquierda */
   }
   
   .imgSenaUnity:hover {

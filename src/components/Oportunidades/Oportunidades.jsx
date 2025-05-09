@@ -1,25 +1,39 @@
-import React, { useMemo } from "react";
+import React, { useState } from "react";
 import "./Oportunidades.css";
 import imgOportunidades from "../../assets/images/oportunidades.jpg";
 
 const Oportunidades = () => {
   const descripcion = "Un mundo de oportunidades te espera";
-  
-  // Memoiza el mapeo de letras para evitar cálculos en cada render
-  const descripcionAnimada = useMemo(() =>
-    descripcion.split('').map((letra, index) => (
-      <span
-        key={index}
-        style={
-          letra === ' '
-            ? { animationDelay: `${index * 0.1}s`, margin: '0 4px' }
-            : { animationDelay: `${index * 0.1}s` }
-        }
-      >
-        {letra === ' ' ? '\u00A0' : letra}
-      </span>
-    ))
-  , [descripcion]);
+  const [hoveredOption, setHoveredOption] = useState(null);
+
+  const opciones = [
+    {
+      id: 1,
+      imagen: "/imagenes/carreras-presenciales.png",
+      alt: "Carreras presenciales",
+      texto: "Carreras Tecnologas"
+    },
+    {
+      id: 2,
+      imagen: "/imagenes/carreras-cortas.png",
+      alt: "Carreras cortas",
+      texto: "Carreras Cortas"
+    },
+    {
+      id: 3,
+      imagen: "/imagenes/cursos-ingles.png",
+      alt: "Cursos de inglés",
+      texto: "Cursos de inglés"
+    }
+  ];
+
+  const handleMouseEnter = (id) => {
+    setHoveredOption(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredOption(null);
+  };
 
   return (
     <section className="oportunidades-section">
@@ -27,22 +41,23 @@ const Oportunidades = () => {
       <div className="oportunidades-container">
         <h1 className="titulo-oportunidades">Programas de Formación</h1>
         <p className="descripcion-oportunidades">
-          {descripcionAnimada}
+          {descripcion}
         </p>
         <img src={imgOportunidades} alt="Oportunidades" className="oportunidades-img" />
         <div className="opciones-container">
-          <div className="opcion">
-            <img src="/imagenes/carreras-presenciales.png" alt="Carreras presenciales" />
-            <p><strong>Carreras presenciales</strong></p>
-          </div>
-          <div className="opcion">
-            <img src="/imagenes/carreras-cortas.png" alt="Carreras cortas" />
-            <p><strong>Carreras cortas</strong></p>
-          </div>
-          <div className="opcion">
-            <img src="/imagenes/cursos-ingles.png" alt="Cursos de inglés" />
-            <p><strong>Cursos de inglés</strong></p>
-          </div>
+          {opciones.map((opcion) => (
+            <div 
+              key={opcion.id}
+              className={`opcion-base ${hoveredOption === opcion.id ? 'opcion-hover' : ''}`}
+              onMouseEnter={() => handleMouseEnter(opcion.id)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <img src={opcion.imagen} alt={opcion.alt} />
+              <p className={hoveredOption === opcion.id ? 'texto-hover' : ''}>
+                <strong>{opcion.texto}</strong>
+              </p>
+            </div>
+          ))}
         </div>
       </div>
       <hr className="divider bottom-divider" />
