@@ -2,6 +2,7 @@
   min-height: 100vh;
   background-color: #1a1a1a;
   color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 .eventos-main {
@@ -85,5 +86,11 @@
   .tab {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventos-container {
+    margin-top: 120px;
   }
 }

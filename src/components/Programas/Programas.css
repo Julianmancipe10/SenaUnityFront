@@ -12,7 +12,7 @@
     height: 850px;
     overflow: visible;
     margin: 40px auto;
-    background-color: #BFFF71;
+   
 }
 
 .oportunidades-img {
@@ -170,4 +170,9 @@
     font-weight: bold;
     text-align: center;
     z-index: 2;
-}  
+}
+
+.active {
+    color: #BFFF71;
+    text-decoration: underline;
+} 

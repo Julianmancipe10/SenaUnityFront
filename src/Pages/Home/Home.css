@@ -3,6 +3,15 @@ body {
   /* Eliminado overflow-x: hidden para permitir que las tarjetas salgan del contenedor */
 }
 
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px; /* Aumentado para dar más espacio al header fijo */
+  font-family: 'Poppins', sans-serif;
+}
+
 .home-container {
   display: flex; /* Hace que los elementos se acomoden en una fila */
   align-items: flex-start; /* Cambiado de center a flex-start para alinear desde arriba */
@@ -49,29 +58,30 @@ body {
 }
 
 .top-section {
-  width: 90%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center; /* Cambiado de flex-start a center */
-  margin: 20px auto 0; /* Reducido de 20px a 18px para reducir altura */
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  margin: 15px auto 0;
   padding: 0;
-  padding-left: 0; /* Eliminado el padding-left para centrar correctamente */
-  margin-left: auto; /* Cambiado de 20px a auto para centrar */
-  margin-right: auto; /* Añadido margin-right: auto para centrar */
+  box-sizing: border-box;
   position: relative;
-  height: calc(100% - 4px); /* Reduciendo la altura en 4px */
+  left: 10px;
 }
   
 .h1Bienvenidos {
-  font-size: 4rem; /* Reducido ligeramente de 4rem para reducir altura */
-  font-weight: bold;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  margin: 0 auto; /* Cambiado para centrar */
-  text-align: center; /* Cambiado de left a center */
-  padding-left: 0; /* Elimina cualquier padding */
-  margin-left: 0; /* Eliminado el margen negativo */
-  line-height: 0.95; /* Añadido para reducir la altura */
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+  width: 90%;
+  letter-spacing: 1px;
+  color: white;
+  top: 30px;
+  margin-left: -70px;
+  font-family: 'Poppins', sans-serif !important;
 }
   
 .divh1TextHome {
@@ -98,56 +108,80 @@ body {
 }
   
 .button-ingresar {
+  position: static;
+  margin: 0 0 20px -50px;
+  transform: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  right: auto;
+  left: auto;
+  top: auto;
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
   padding: 0;
-  position: absolute; /* Mantener posicionamiento absoluto */
-  right: 4%; /* Ajustado de 5% a 2% para moverlo más a la derecha */
-  left: auto; /* Eliminado para que no esté centrado */
-  margin: 0; /* Eliminado margin auto */
-  top: 50%; /* Centrado verticalmente */
-  transform: translateY(-50%); /* Centrado verticalmente */
-  width: fit-content; /* Añadido para que el ancho se ajuste al contenido */
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-ingresar:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.button-ingresar:active {
+  outline: none;
+  text-decoration: none;
+}
+
+.button-ingresar:hover {
+  color: #BFFF71;
+  transform: scale(1.08);
+}
+
+.button-ingresar:hover .ingresar-text {
+  color: #BFFF71;
+}
+
+.button-ingresar:hover img {
+  border: 2.5px solid #BFFF71;
+  box-sizing: border-box;
 }
   
 .ingresar-wrapper {
+  transform: scale(1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.3s ease;
-  transform: scale(0.85); /* Reduciendo el tamaño del wrapper */
 }
   
 .ingresar-text {
-  color: #ffffff;
-  font-weight: 1000;
-  font-size: 14px; /* Reducido de 16px a 14px */
-  font-family: 'Poppins', sans-serif;
-  transition: color 0.3s ease, text-shadow 0.3s ease, -webkit-text-stroke 0.3s ease, transform 0.3s ease;
-  margin-top: -5px; /* Reduciendo el espacio entre la imagen y el texto */
-}
-  
-.button-ingresar:hover .ingresar-text {
-  color: #bfff71;
-  transform: scale(1.08);
+  font-size: 12px;
+  margin-top: 2px;
+  font-weight: 600;
+  color: white;
+  text-transform: lowercase;
+  text-decoration: none !important;
+  outline: none;
+  transition: color 0.3s ease;
+  border: none;
+  -webkit-text-decoration: none;
+  -moz-text-decoration: none;
+  text-decoration-skip-ink: none;
 }
   
 .button-ingresar img {
-  background-color: rgb(255, 255, 255);
-  width: 50px; /* Reducido de 60px a 50px */
-  height: 50px; /* Reducido de 60px a 50px */
-  margin-bottom: 10px; /* Reducido de 20px a 10px */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 40px;
+  height: 40px;
+  background-color: white;
   border-radius: 50%;
-}
-  
-.button-ingresar:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 0 0 1px #bfff71;
+  margin-bottom: 5px;
+  object-fit: cover;
 }
   
 .superate-text {
@@ -255,5 +289,151 @@ body {
     width: 100%;
     align-items: center;
   }
+}
+  
+/* Ajustes para celulares pequeños (exactamente como la imagen) */
+@media screen and (max-width: 480px) {
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .main-container {
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .top-section {
+    width: 100%;
+    margin: 0 !important; /* Eliminado el margen superior */
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .button-ingresar {
+    margin-bottom: 24px !important;
+  }
+
+  .h1Bienvenidos {
+    margin-left: 30px !important;
+    display: block !important;
+    text-align: left !important;
+    font-size: 30px !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-weight: 900 !important;
+    font-family: 'Poppins', sans-serif !important;
+    width: auto;
+    align-self: center;
+  }
+  
+  .superate-text {
+    display: none;
+  }
+  
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Texto principal - ajustado para ser igual a la imagen */
+  .text-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+    text-align: left;
+  }
+  
+  .divh1TextHome {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .divh1TextHome h1 {
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-top: 0;
+    font-weight: 400;
+  }
+  
+  /* Destacar palabras clave en verde neón como en la imagen */
+  .spanTxt {
+    color: #bfff71;
+    font-weight: 700;
+  }
+
+  /* Componentes de tarjetas */
+  .comp-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Título de la sección Eventos */
+  .comp-card h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 0 10px;
+    font-weight: 700;
+  }
+
+  .DivHeader,
+  .DivHeader *,
+  .DivHeader h1,
+  .DivHeader h1 span,
+  .DivHeader nav ul li a {
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  .button-ingresar img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .ingresar-text {
+    font-size: 10px !important;
+  }
+}
+  
+/* Título de la sección Eventos */
+.comp-card h2 {
+  font-size: 32px;
+  text-align: center;
+  margin: 30px 0 20px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+  
+.top-section a,
+.top-section a:visited,
+.top-section a:active,
+.top-section a:hover {
+  text-decoration: none !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+  
+.DivHeader h1,
+.h1Bienvenidos {
+  font-family: 'Poppins', sans-serif !important;
 }
   

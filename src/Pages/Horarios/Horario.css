@@ -17,7 +17,8 @@
   color: white;
   padding: 20px;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 120px;
 }
 
 .horario-main {
@@ -109,6 +110,12 @@
   
   .imagen-container {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .horario-container {
+    margin-top: 120px;
   }
 }
 

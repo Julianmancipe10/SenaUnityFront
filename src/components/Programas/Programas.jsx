@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Oportunidades.css";
-import imgOportunidades from "../../assets/images/oportunidades.jpg";
+import "./Programas.css";
+import imgOportunidades from "../../assets/images/fondoProgramas.png";
 
-const Oportunidades = () => {
+const Programas = () => {
   const descripcion = "Un mundo de oportunidades te espera";
   const [hoveredOption, setHoveredOption] = useState(null);
 
@@ -65,4 +65,4 @@ const Oportunidades = () => {
   );
 };
 
-export default Oportunidades;
+export default Programas; 
