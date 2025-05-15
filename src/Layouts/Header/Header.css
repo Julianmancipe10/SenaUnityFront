@@ -20,21 +20,22 @@
 }
 
 .LogoSena {
-  height: 30px !important;
+  height: 40px !important;
   margin-right: 10px;
   order: 1;
+  margin-left: 150px; /* Añadido para mover el logo a la derecha */
 }
 
 .centro-comercio-text {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px !important;
+  font-size: 14px !important;
   color: #ffffff;
   font-weight: 300;
   line-height: 1.2;
   text-shadow: 0.2px 0.2px 0px rgb(255, 255, 255);
   text-align: left;
   order: 3;
-  margin-left: -140px !important; /* Puedes ajustar el valor, por ejemplo -8px, -12px, etc. */
+  margin-left: -140px !important; /* Cambiado de -140px a 0 */
   margin-right: 20px;
 }
 
@@ -48,7 +49,7 @@
 
 .iten {
   display: flex;
-  gap: 20px; /* Menos espacio entre los links del menú */
+  gap: 35px; /* Menos espacio entre los links del menú */
   align-items: center;
   justify-content: flex-start;
 }
@@ -83,8 +84,7 @@ nav {
   display: flex;
   align-items: center;
   order: 4;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+  padding-left: 5%!important;/* Añadido para mover los items a la derecha */
 }
 
 nav ul {
@@ -164,6 +164,7 @@ nav ul li a:hover {
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
   order: 5;
+  padding-left: 5%; /* Añadido para mover el logo 10px a la derecha */
 }
 
 .imgSenaUnity:hover {

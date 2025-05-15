@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../../Layouts/Header/Header";
-import Slider from "../EventosNoticias/Eventos";
+import Eventos from "../EventosNoticias/Eventos";
 import Noticias from "../EventosNoticias/Noticias";
 import Programas from "../../components/Programas/Programas";
 import InstrucFuncionarios from "../../Layouts/InstrucFuncionarios/InstrucFuncionarios";
@@ -40,7 +40,7 @@ export const Home = () => {
         </div>
         
         <div className="comp-card">
-          <Slider />
+          <Eventos />
           <Noticias />
         </div>
       </div>

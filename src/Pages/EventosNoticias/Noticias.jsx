@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 
 import "./Noticias.css"; // Cambiado para usar su propio archivo CSS
 import noticia1 from "../../assets/images/slider1.jpg"; // Temporalmente usamos las mismas imágenes
@@ -93,7 +94,7 @@ const Noticias = () => {
               <div className="card-content">
                   <span className="card-title">{card.badge}</span>
                   <h3 className="card-description">{card.title}</h3>
-                <a href="#" className="card-link">
+                <Link to={`/noticia/${card.id}`} className="card-link">
                   Ver más
                   <span className="card-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -102,7 +103,7 @@ const Noticias = () => {
                       <path d="M8 12h8"></path>
                     </svg>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
