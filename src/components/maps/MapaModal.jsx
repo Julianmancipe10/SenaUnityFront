@@ -20,4 +20,6 @@ const MapaModal = ({ show, onClose, mapaUrl }) => {
   );
 };
 
+/* comentario para hacer commit */
+
 export default MapaModal;
