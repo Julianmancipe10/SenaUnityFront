@@ -36,7 +36,8 @@ const Register = () => {
     try {
       const { confirmPassword, ...userData } = formData;
       const response = await registerUser(userData);
-      navigate('/dashboard');
+      
+      navigate('/profile');
     } catch (error) {
       setError(error.message || 'Error al registrar usuario');
     }

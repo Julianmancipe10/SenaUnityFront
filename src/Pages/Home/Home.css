@@ -105,13 +105,14 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  position: absolute; /* Mantener posicionamiento absoluto */
-  right: 4%; /* Ajustado de 5% a 2% para moverlo más a la derecha */
-  left: auto; /* Eliminado para que no esté centrado */
-  margin: 0; /* Eliminado margin auto */
-  top: 50%; /* Centrado verticalmente */
-  transform: translateY(-50%); /* Centrado verticalmente */
-  width: fit-content; /* Añadido para que el ancho se ajuste al contenido */
+  position: absolute;
+  right: 4%;
+  left: auto;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: fit-content;
+  transition: all 0.3s ease;
 }
   
 .ingresar-wrapper {
@@ -131,9 +132,17 @@ body {
   margin-top: -5px; /* Reduciendo el espacio entre la imagen y el texto */
 }
   
+.button-ingresar:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+  
 .button-ingresar:hover .ingresar-text {
   color: #bfff71;
-  transform: scale(1.08);
+}
+  
+.button-ingresar:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #bfff71;
 }
   
 .button-ingresar img {
@@ -143,11 +152,6 @@ body {
   margin-bottom: 10px; /* Reducido de 20px a 10px */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 50%;
-}
-  
-.button-ingresar:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 0 0 1px #bfff71;
 }
   
 .superate-text {
@@ -255,5 +259,28 @@ body {
     width: 100%;
     align-items: center;
   }
+}
+  
+.edit-profile-icon {
+  position: absolute;
+  right: 120px; /* Ajusta según tu diseño */
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  z-index: 10;
+}
+
+.edit-profile-icon:hover {
+  box-shadow: 0 4px 16px #25dfc4;
+  background: #e4e518;
+}
+
+.edit-profile-icon svg {
+  display: block;
 }
   

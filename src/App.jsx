@@ -13,6 +13,9 @@ import Horario from './Pages/Horarios/Horario';
 import Contacto from './Pages/Contacto/Contacto';
 import Eventos from './Pages/Eventos/Eventos';
 
+import FAQ from './Pages/FAQ/FAQ';
+
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -33,6 +36,8 @@ function App() {
           <Route path="/horarios" element={<Horario />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/eventos" element={<Eventos />} />
+          <Route path="/faq" element={<FAQ />} />
+
         </Routes>
       </div>
     </Router>
