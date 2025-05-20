@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../Layouts/Header/Header";
-import Slider from "../Slider/Slider";
-import Noticias from "../Slider/Noticias";
-import Oportunidades from "../../components/Oportunidades/Oportunidades";
+import Eventos from "../EventosNoticias/Eventos";
+import Noticias from "../EventosNoticias/Noticias";
+import Programas from "../../components/Programas/Programas";
 import InstrucFuncionarios from "../../Layouts/InstrucFuncionarios/InstrucFuncionarios";
 import NuestrasSedes from "../../Layouts/NuestrasSedes/NuestrasSedes";
 import imgUsuario from '../../assets/images/imgUsuario.png';
 import "../Home/Home.css";
 import { Link, useNavigate } from 'react-router-dom';
-import Horario from "../Horarios/Horario";
 import { getCurrentUser } from '../../services/auth';
 import BotIcon from "../../components/BotIcon";
 import ChatModal from "../../components/ChatModal";
 
-export const Home = () => {
+const Home = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -26,7 +25,7 @@ export const Home = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    navigate('/login');
+    navigate('/LoginPage');
   };
 
   const getWelcomeMessage = () => {
@@ -36,8 +35,8 @@ export const Home = () => {
   };
 
   return (
-    <div>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;1000&display=swap" rel="stylesheet" />
+    <div className="main-container">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       <Header />
       
       <div className="top-section">
@@ -69,6 +68,7 @@ export const Home = () => {
           </Link>
         )}
       </div>
+      
       <div className="home-container">
         <div className="text-container">
           <div className='divh1TextHome'>
@@ -79,12 +79,14 @@ export const Home = () => {
             </h1>
           </div>
         </div>
+        
         <div className="comp-card">
-          <Slider />
+          <Eventos />
           <Noticias />
         </div>
       </div>
-      <Oportunidades />
+      
+      <Programas />
       <InstrucFuncionarios />
       <NuestrasSedes />
       <BotIcon onClick={() => setIsChatOpen(true)} />
@@ -92,3 +94,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

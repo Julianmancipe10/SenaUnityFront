@@ -1,6 +1,7 @@
 .contacto-container {
   min-height: 100vh;
   background-color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
 }
 
 .contacto-main {
@@ -89,5 +90,11 @@
   .contacto-info,
   .contacto-form {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contacto-container {
+    margin-top: 120px;
   }
 }

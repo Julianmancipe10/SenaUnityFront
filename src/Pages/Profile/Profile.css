@@ -1,0 +1,106 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.profile-card h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-info {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  flex: 0 0 150px;
+}
+
+.profile-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #BFFF71;
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.detail-group {
+  margin-bottom: 20px;
+}
+
+.detail-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-family: 'Poppins', sans-serif;
+}
+
+.detail-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.detail-group input:focus {
+  border-color: #BFFF71;
+  outline: none;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.save-button,
+.cancel-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button {
+  background-color: #BFFF71;
+  color: #000000;
+}
+
+.save-button:hover {
+  background-color: #a8e65c;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+} 

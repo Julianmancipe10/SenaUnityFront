@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 
-import "./Slider.css";
+import "./Eventos.css";
 import slider1 from "../../assets/images/slider1.jpg";
 import slider2 from "../../assets/images/slider2.jpg";
 import slider3 from "../../assets/images/slider3.jpg";
@@ -91,7 +92,7 @@ const Slider = () => {
               <div className="card-content">
                 <span className="card-title">{card.badge}</span>
                 <h3 className="card-description">{card.title}</h3>
-                <a href="#" className="card-link">
+                <Link to={`/evento/${card.id}`} className="card-link">
                   Ver más
                   <span className="card-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,7 +101,7 @@ const Slider = () => {
                       <path d="M8 12h8"></path>
                     </svg>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
