@@ -126,7 +126,7 @@ const Register = () => {
 
             <p className="login-text">
               ¿Ya tienes cuenta?{" "}
-              <Link to="/login" style={{ color: "blue" }}>
+              <Link to="/LoginPage" style={{ color: "blue" }}>
                 Iniciar sesión
               </Link>
             </p>
