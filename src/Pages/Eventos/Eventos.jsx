@@ -88,5 +88,4 @@ const Eventos = () => {
 
 /*comentario que alex pidio*/
 
-
 export default Eventos;
