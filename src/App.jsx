@@ -11,7 +11,8 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register'; // Ajustá la ruta si tu carpeta es diferente
 import Horario from './Pages/Horarios/Horario';
 import Contacto from './Pages/Contacto/Contacto';
-import Eventos from './Pages/Eventos/Eventos';
+import VerMasEvento from './Pages/EventosNoticias/VerMas/VerMasEvento';
+import VerMasNoticia from './Pages/EventosNoticias/VerMas/VerMasNoticia';
 
 function App() {
   useEffect(() => {
@@ -32,7 +33,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/horarios" element={<Horario />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/evento/:id" element={<VerMasEvento />} />
+          <Route path="/noticia/:id" element={<VerMasNoticia />} />
         </Routes>
       </div>
     </Router>
