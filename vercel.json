@@ -1,19 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "nodeVersion": "18.x"
-      }
-    }
-  ],
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
