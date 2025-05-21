@@ -203,10 +203,31 @@
 }
 
 .error-message {
-  color: #dc3545;
-  background-color: #f8d7da;
-  padding: 0.5rem;
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
   text-align: center;
+  border: 1px solid #ef9a9a;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #a5d6a7;
+}
+
+.btn-Registrarse:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.input-field:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
 }

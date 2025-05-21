@@ -107,49 +107,19 @@ body {
 }
   
 .button-ingresar {
-  position: static;
-  margin: 0 0 20px -50px;
-  transform: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  right: auto;
+  position: absolute;
+  right: 4%;
   left: auto;
-  top: auto;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: fit-content;
+  transition: all 0.3s ease;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 0;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.button-ingresar:focus {
-  outline: none;
-  text-decoration: none;
-}
-
-.button-ingresar:active {
-  outline: none;
-  text-decoration: none;
-}
-
-.button-ingresar:hover {
-  color: #BFFF71;
-  transform: scale(1.08);
-}
-
-.button-ingresar:hover .ingresar-text {
-  color: #BFFF71;
-}
-
-.button-ingresar:hover img {
-  border: 2.5px solid #BFFF71;
-  box-sizing: border-box;
 }
   
 .ingresar-wrapper {
@@ -160,18 +130,25 @@ body {
 }
   
 .ingresar-text {
-  font-size: 12px;
-  margin-top: 2px;
-  font-weight: 600;
-  color: white;
-  text-transform: lowercase;
-  text-decoration: none !important;
-  outline: none;
-  transition: color 0.3s ease;
-  border: none;
-  -webkit-text-decoration: none;
-  -moz-text-decoration: none;
-  text-decoration-skip-ink: none;
+  color: #ffffff;
+  font-weight: 1000;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease, text-shadow 0.3s ease, -webkit-text-stroke 0.3s ease, transform 0.3s ease;
+  margin-top: -5px;
+}
+  
+.button-ingresar:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+  
+.button-ingresar:hover .ingresar-text {
+  color: #bfff71;
+}
+  
+.button-ingresar:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #bfff71;
 }
   
 .button-ingresar img {
@@ -179,8 +156,6 @@ body {
   height: 40px;
   background-color: white;
   border-radius: 50%;
-  margin-bottom: 5px;
-  object-fit: cover;
 }
   
 .superate-text {
@@ -290,125 +265,27 @@ body {
   }
 }
   
-/* Ajustes para celulares pequeños (exactamente como la imagen) */
-@media screen and (max-width: 480px) {
-  body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .main-container {
-    padding: 0;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 120px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .top-section {
-    width: 90%;
-    margin: 0 !important;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 30%;
-    margin-left: -5% !important;
-  }
+.edit-profile-icon {
+  position: absolute;
+  right: 120px; /* Ajusta según tu diseño */
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  z-index: 10;
+}
 
-  .button-ingresar {
-    margin-top: 18px !important;
-  }
+.edit-profile-icon:hover {
+  box-shadow: 0 4px 16px #25dfc4;
+  background: #e4e518;
+}
 
-  .ingresar-text {
-    margin-top: -6px !important;
-    padding-top: 0 !important;
-  }
-
-  .h1Bienvenidos {
-    margin-left: 5% !important;
-    text-align: left !important;
-    font-size: 30px !important;
-    color: #fff !important;
-    font-weight: 900 !important;
-    font-family: 'Poppins', sans-serif !important;
-    width: auto;
-  }
-  
-  .superate-text {
-    display: none;
-  }
-  
-  .home-container {
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-    width: 100%;
-    padding: 0 15px;
-    margin-top: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Texto principal - ajustado para ser igual a la imagen */
-  .text-container {
-    width: 100%;
-    padding: 0;
-    margin-top: 0;
-    text-align: left;
-  }
-  
-  .divh1TextHome {
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .divh1TextHome h1 {
-    font-size: 18px;
-    text-align: left;
-    line-height: 1.5;
-    padding: 0 10px;
-    margin-top: 0;
-    font-weight: 400;
-  }
-  
-  /* Destacar palabras clave en verde neón como en la imagen */
-  .spanTxt {
-    color: #bfff71;
-    font-weight: 700;
-  }
-
-  /* Componentes de tarjetas */
-  .comp-card {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  /* Título de la sección Eventos */
-  .comp-card h2 {
-    font-size: 28px;
-    text-align: center;
-    margin: 20px 0 10px;
-    font-weight: 700;
-  }
-
-  .DivHeader,
-  .DivHeader *,
-  .DivHeader h1,
-  .DivHeader h1 span,
-  .DivHeader nav ul li a {
-    font-family: 'Poppins', sans-serif !important;
-  }
-
-  .button-ingresar img {
-    width: 28px !important;
-    height: 28px !important;
-  }
-  .ingresar-text {
-    font-size: 10px !important;
-  }
+.edit-profile-icon svg {
+  display: block;
 }
   
 /* Título de la sección Eventos */

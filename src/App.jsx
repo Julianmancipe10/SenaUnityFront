@@ -1,42 +1,52 @@
-import { useEffect } from 'react';
-import './App.css';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import { Home } from './Pages/Home/Home';
-import LoginPage from './Pages/LoginPage/LoginPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Eventos from "./Pages/EventosNoticias/Eventos";
+import FAQ from "./Pages/FAQ/FAQ";
+import VerMasEvento from "./Pages/EventosNoticias/VerMas/VerMasEvento";
+import VerMasNoticia from "./Pages/EventosNoticias/VerMas/VerMasNoticia";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import Profile from "./Pages/Profile/Profile";
+import Horario from "./Pages/Horarios/Horario";
 import ProfileUser from './Pages/CrearPerfil/ProfileUser';
 import Login from './components/Login/Login';
-import Register from './components/Register/Register'; // Ajustá la ruta si tu carpeta es diferente
-import Horario from './Pages/Horarios/Horario';
+import Register from "./components/Register/Register";
+import AdminPanel from "./Pages/Admin/AdminPanel";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { PERMISOS } from "./constants/roles";
 import Contacto from './Pages/Contacto/Contacto';
-import VerMasEvento from './Pages/EventosNoticias/VerMas/VerMasEvento';
-import VerMasNoticia from './Pages/EventosNoticias/VerMas/VerMasNoticia';
-import SoloEventoNoticia from "./Pages/SoloEventoNoticia/SoloEventoNoticia"; // Ajusta el import según el nombre real
+import SoloEventoNoticia from "./Pages/SoloEventoNoticia/SoloEventoNoticia";
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  }, []);
-
   return (
     <Router>
-      <div className='app'>
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProfileUser />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/horarios" element={<Horario />} />
-          <Route path="/contacto" element={<Contacto />} />
           <Route path="/evento/:id" element={<VerMasEvento />} />
           <Route path="/noticia/:id" element={<VerMasNoticia />} />
           <Route path="/SoloEventoNoticia" element={<SoloEventoNoticia />} />
+          
+          {/* Rutas protegidas del panel de administración */}
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute 
+                requiredPermissions={[
+                  PERMISOS.VER_USUARIO,
+                  PERMISOS.VER_PERMISOS,
+                  PERMISOS.VER_ROLES
+                ]}
+              >
+                <AdminPanel />
+              </ProtectedRoute>
+            } 
+          />
         </Routes>
       </div>
     </Router>
