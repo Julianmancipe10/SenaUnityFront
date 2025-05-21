@@ -24,7 +24,7 @@ export const Header = () => {
                     <NavLink to="/" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Inicio</NavLink>
                     <NavLink to="/contacto" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Contacto</NavLink>
                     <NavLink to="/horarios" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Horarios</NavLink>
-                    <NavLink to="/eventos" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Eventos y Noticias</NavLink>
+                    <NavLink to="/SoloEventoNoticia" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Eventos y Noticias</NavLink>
                     </li>
                 </ul>
             </nav>

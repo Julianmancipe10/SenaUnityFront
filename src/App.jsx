@@ -13,6 +13,7 @@ import Horario from './Pages/Horarios/Horario';
 import Contacto from './Pages/Contacto/Contacto';
 import VerMasEvento from './Pages/EventosNoticias/VerMas/VerMasEvento';
 import VerMasNoticia from './Pages/EventosNoticias/VerMas/VerMasNoticia';
+import SoloEventoNoticia from "./Pages/SoloEventoNoticia/SoloEventoNoticia"; // Ajusta el import según el nombre real
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/evento/:id" element={<VerMasEvento />} />
           <Route path="/noticia/:id" element={<VerMasNoticia />} />
+          <Route path="/SoloEventoNoticia" element={<SoloEventoNoticia />} />
         </Routes>
       </div>
     </Router>

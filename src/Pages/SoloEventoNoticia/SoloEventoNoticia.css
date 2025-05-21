@@ -1,0 +1,61 @@
+/* Estilos para SoloEventoNoticia */
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #BFFF71;
+  margin-bottom: 0px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.solo-card h2, 
+.solo-card h3, 
+.solo-card .title {
+}
+
+.solo-card {
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+/* Texto de prueba en verde */
+.solo-card div {
+  color: #BFFF71;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Aumentar tamaño de las cards dentro de SoloEventoNoticia */
+.solo-card .card {
+  max-width: 320px;
+  transform: scale(1.05);
+  margin: 0 15px;
+}
+
+.solo-card .card-image-container {
+  height: 180px;
+}
+
+.solo-card .card-content {
+  padding: 15px;
+}
+
+.solo-card .card-description {
+  font-size: 14px;
+}
+
+/* Ajustar el contenedor para las cards más grandes */
+.solo-card .cards-container {
+  gap: 30px;
+  padding: 10px 0;
+  justify-content: center;
+}
