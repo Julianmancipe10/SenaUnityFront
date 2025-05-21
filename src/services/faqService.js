@@ -2,20 +2,64 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/faq";
 
-export const preguntarFAQ = async (question) => {
+// Cache simple para respuestas frecuentes
+const responseCache = new Map();
+const CACHE_DURATION = 1000 * 60 * 60; // 1 hora
+
+const getCacheKey = (question) => {
+  return question.toLowerCase().trim();
+};
+
+const checkCache = (question) => {
+  const key = getCacheKey(question);
+  const cached = responseCache.get(key);
+  if (cached && (Date.now() - cached.timestamp) < CACHE_DURATION) {
+    return cached.answer;
+  }
+  return null;
+};
+
+const addToCache = (question, answer) => {
+  const key = getCacheKey(question);
+  responseCache.set(key, {
+    answer,
+    timestamp: Date.now()
+  });
+};
+
+export const preguntarFAQ = async (question, context = "") => {
   try {
-    const res = await axios.post(API_URL, { question });
+    // Verificar caché primero
+    const cachedAnswer = checkCache(question);
+    if (cachedAnswer) {
+      return cachedAnswer;
+    }
+
+    const res = await axios.post(API_URL, { 
+      question,
+      context,
+      timestamp: new Date().toISOString()
+    });
+
+    // Guardar en caché
+    addToCache(question, res.data.answer);
+    
     return res.data.answer;
   } catch (error) {
+    console.error("Error en preguntarFAQ:", error);
+
     if (error.response) {
-      // El servidor respondió con un código de error
-      throw new Error(error.response.data.error || "Error en el servidor");
+      // Error con respuesta del servidor
+      const message = error.response.data.error || 
+                     error.response.data.message || 
+                     "Error en el servidor";
+      throw new Error(message);
     } else if (error.request) {
-      // La petición fue hecha pero no se recibió respuesta
-      throw new Error("No se pudo conectar con el servidor");
+      // Error de red
+      throw new Error("No se pudo conectar con el servidor. Por favor, verifica tu conexión.");
     } else {
-      // Error al configurar la petición
-      throw new Error("Error al procesar la solicitud");
+      // Error de configuración
+      throw new Error("Error al procesar la solicitud. Por favor, intenta de nuevo.");
     }
   }
 };
