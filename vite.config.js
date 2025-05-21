@@ -19,5 +19,8 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom']
   }
 })
