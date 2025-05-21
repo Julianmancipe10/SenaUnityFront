@@ -1,6 +1,6 @@
 import React from 'react'
 import imgLogo from '../../assets/images/Logo_SenaUnity.png'
-import imgLogoSenaGreen from '../../assets/images/Logo-Sena-Green.png'
+import imgLogoSenaGreen from '../../assets/images/logo-sena-green.png'
 import '../Header/Header.css'
 import { NavLink } from 'react-router-dom';
 import { usePermissions } from '../../hooks/usePermissions';
