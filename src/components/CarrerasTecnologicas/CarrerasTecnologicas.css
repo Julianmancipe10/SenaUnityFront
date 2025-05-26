@@ -1,0 +1,162 @@
+.carreras-tecnologicas-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.carreras-tecnologicas-container {
+  padding: 2rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.btn-crear {
+  background: #39B54A;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: absolute;
+  top: 80px;
+  right: 2rem;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-crear:hover {
+  background: #2f9e3d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.carreras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carrera-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.carrera-header {
+  background: linear-gradient(135deg, #39B54A 0%, #2f9e3d 100%);
+  padding: 1.25rem;
+}
+
+.carrera-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.tipo-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.carrera-content {
+  padding: 1.25rem;
+}
+
+.duracion-info {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.horas-numero {
+  font-size: 2.25rem;
+  color: #BFFF71;
+  font-weight: 700;
+  display: block;
+}
+
+.horas-texto {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.duracion-label {
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: block;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.descripcion {
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.titulo-obtener {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.titulo-obtener h4 {
+  color: #BFFF71;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.titulo-obtener p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .header-section h1 {
+    font-size: 2rem;
+  }
+  
+  .carreras-grid {
+    grid-template-columns: 1fr;
+  }
+}

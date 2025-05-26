@@ -1,0 +1,17 @@
+.bot-icon-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.bot-icon-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+} 

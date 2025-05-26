@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Programas.css";
 import imgOportunidades from "../../assets/images/fondoProgramas.png";
 
 const Programas = () => {
+  const navigate = useNavigate();
   const descripcion = "Un mundo de oportunidades te espera";
   const [hoveredOption, setHoveredOption] = useState(null);
 
@@ -11,7 +13,8 @@ const Programas = () => {
       id: 1,
       imagen: "/imagenes/carreras-presenciales.png",
       alt: "Carreras presenciales",
-      texto: "Carreras Tecnologas"
+      texto: "Carreras Tecnologas",
+      ruta: "/carreras-tecnologicas"
     },
     {
       id: 2,
@@ -35,22 +38,26 @@ const Programas = () => {
     setHoveredOption(null);
   };
 
+  const handleClick = (ruta) => {
+    navigate(ruta);
+  };
+
   return (
     <section className="oportunidades-section">
       <hr className="divider" />
       <div className="oportunidades-container">
         <h1 className="titulo-oportunidades">Programas de Formación</h1>
-        <p className="descripcion-oportunidades">
-          {descripcion}
-        </p>
+        <p className="descripcion-oportunidades">{descripcion}</p>
         <img src={imgOportunidades} alt="Oportunidades" className="oportunidades-img" />
         <div className="opciones-container">
           {opciones.map((opcion) => (
-            <div 
+            <div
               key={opcion.id}
               className={`opcion-base ${hoveredOption === opcion.id ? 'opcion-hover' : ''}`}
               onMouseEnter={() => handleMouseEnter(opcion.id)}
               onMouseLeave={handleMouseLeave}
+              onClick={() => handleClick(opcion.ruta)}
+              style={{ cursor: 'pointer' }}
             >
               <img src={opcion.imagen} alt={opcion.alt} />
               <p className={hoveredOption === opcion.id ? 'texto-hover' : ''}>
@@ -65,4 +72,4 @@ const Programas = () => {
   );
 };
 
-export default Programas; 
+export default Programas;

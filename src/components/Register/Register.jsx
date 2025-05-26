@@ -36,7 +36,8 @@ const Register = () => {
     try {
       const { confirmPassword, ...userData } = formData;
       const response = await registerUser(userData);
-      navigate('/dashboard');
+      
+      navigate('/profile');
     } catch (error) {
       setError(error.message || 'Error al registrar usuario');
     }
@@ -125,7 +126,7 @@ const Register = () => {
 
             <p className="login-text">
               ¿Ya tienes cuenta?{" "}
-              <Link to="/login" style={{ color: "blue" }}>
+              <Link to="/LoginPage" style={{ color: "blue" }}>
                 Iniciar sesión
               </Link>
             </p>

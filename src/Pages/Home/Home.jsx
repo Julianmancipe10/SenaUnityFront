@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../../Layouts/Header/Header";
 import Eventos from "../EventosNoticias/Eventos";
 import Noticias from "../EventosNoticias/Noticias";
@@ -7,25 +7,66 @@ import InstrucFuncionarios from "../../Layouts/InstrucFuncionarios/InstrucFuncio
 import NuestrasSedes from "../../Layouts/NuestrasSedes/NuestrasSedes";
 import imgUsuario from '../../assets/images/imgUsuario.png';
 import "../Home/Home.css";
-import { Link } from 'react-router-dom';
-import Horario from "../Horarios/Horario";
+import { Link, useNavigate } from 'react-router-dom';
+import { getCurrentUser } from '../../services/auth';
+import BotIcon from "../../components/BotIcon";
+import ChatModal from "../../components/ChatModal";
 
-export const Home = () => {
+const Home = () => {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  useEffect(() => {
+    const currentUser = getCurrentUser();
+    setUser(currentUser);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/LoginPage');
+  };
+
+  const getWelcomeMessage = () => {
+    if (!user) return "BIENVENIDOS";
+    const nombreCompleto = `${user.nombre} ${user.apellido}`;
+    return `¡Bienvenido ${user.rol || 'Usuario'} ${nombreCompleto}!`;
+  };
+
   return (
     <div className="main-container">
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       <Header />
       
       <div className="top-section">
-        <h1 className="h1Bienvenidos">BIENVENIDOS</h1>
-        <Link to="/LoginPage">
-          <button className="button-ingresar">
-            <div className="ingresar-wrapper">
-              <img src={imgUsuario} alt="Usuario" />
-              <span className="ingresar-text">ingresar</span>
-            </div>
-          </button>
-        </Link>
+        <h1 className="h1Bienvenidos">{getWelcomeMessage()}</h1>
+        {user ? (
+          <>
+            <button className="button-ingresar" onClick={handleLogout}>
+              <div className="ingresar-wrapper">
+                <img src={imgUsuario} alt="Usuario" style={{cursor:'pointer'}} />
+                <span className="ingresar-text">Cerrar Sesión</span>
+              </div>
+            </button>
+            <Link to="/profile" className="edit-profile-icon" title="Editar perfil">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4" stroke="#25dfc4" strokeWidth="2"/>
+                <path d="M4 20c0-2.21 3.58-4 8-4s8 1.79 8 4" stroke="#25dfc4" strokeWidth="2"/>
+                <path d="M17.5 17.5l2 2M19.5 17.5l-2 2" stroke="#e4e518" strokeWidth="2"/>
+              </svg>
+            </Link>
+          </>
+        ) : (
+          <Link to="/LoginPage">
+            <button className="button-ingresar">
+              <div className="ingresar-wrapper">
+                <img src={imgUsuario} alt="Usuario" style={{cursor:'pointer'}} />
+                <span className="ingresar-text">Ingresar</span>
+              </div>
+            </button>
+          </Link>
+        )}
       </div>
       
       <div className="home-container">
@@ -48,6 +89,10 @@ export const Home = () => {
       <Programas />
       <InstrucFuncionarios />
       <NuestrasSedes />
+      <BotIcon onClick={() => setIsChatOpen(true)} />
+      <ChatModal isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
+
+export default Home;
