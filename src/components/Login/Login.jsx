@@ -31,7 +31,7 @@ const Login = () => {
       });
 
       // Redirigir al dashboard
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       setError(error.message || 'Error al iniciar sesión');
     }

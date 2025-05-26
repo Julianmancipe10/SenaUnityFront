@@ -1,40 +1,23 @@
-import { useEffect } from 'react';
-import './App.css';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Eventos from "./Pages/EventosNoticias/Eventos";
+import FAQ from "./Pages/FAQ/FAQ";
+import VerMasEvento from "./Pages/EventosNoticias/VerMas/VerMasEvento";
+import VerMasNoticia from "./Pages/EventosNoticias/VerMas/VerMasNoticia";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import Profile from "./Pages/Profile/Profile";
+import Horario from "./Pages/Horarios/Horario";
+import Register from "./components/Register/Register";
+import AdminPanel from "./Pages/Admin/AdminPanel";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { PERMISOS } from "./constants/roles";
 
-import { Home } from './Pages/Home/Home';
-import LoginPage from './Pages/LoginPage/LoginPage';
-import ProfileUser from './Pages/CrearPerfil/ProfileUser';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import Horario from './Pages/Horarios/Horario';
-import Contacto from './Pages/Contacto/Contacto';
-import CrearCarrera from './components/CrearCarrera/CrearCarrera';
-import CarrerasTecnologicas from './components/CarrerasTecnologicas/CarrerasTecnologicas';
+
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  }, []);
-
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<ProfileUser />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/horarios" element={<Horario />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/crear-carrera" element={<CrearCarrera />} />
-        <Route path="/carreras-tecnologicas" element={<CarrerasTecnologicas />} />
-      </Routes>
+
     </Router>
   );
 }
