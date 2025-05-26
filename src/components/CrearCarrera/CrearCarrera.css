@@ -1,0 +1,83 @@
+.crear-carrera-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.crear-carrera-container h2 {
+  color: #39B54A;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.crear-carrera-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #39B54A;
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-crear {
+  background: linear-gradient(135deg, #39B54A, #34495e);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-crear:hover {
+  transform: translateY(-2px);
+}
+
+.btn-crear:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .crear-carrera-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .btn-crear {
+    padding: 0.8rem 1.5rem;
+  }
+}

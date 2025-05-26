@@ -8,11 +8,11 @@ import { Home } from './Pages/Home/Home';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import ProfileUser from './Pages/CrearPerfil/ProfileUser';
 import Login from './components/Login/Login';
-import Register from './components/Register/Register'; // Ajustá la ruta si tu carpeta es diferente
+import Register from './components/Register/Register';
 import Horario from './Pages/Horarios/Horario';
 import Contacto from './Pages/Contacto/Contacto';
-import VerMasEvento from './Pages/EventosNoticias/VerMas/VerMasEvento';
-import VerMasNoticia from './Pages/EventosNoticias/VerMas/VerMasNoticia';
+import CrearCarrera from './components/CrearCarrera/CrearCarrera';
+import CarrerasTecnologicas from './components/CarrerasTecnologicas/CarrerasTecnologicas';
 
 function App() {
   useEffect(() => {
@@ -24,19 +24,17 @@ function App() {
 
   return (
     <Router>
-      <div className='app'>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProfileUser />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/horarios" element={<Horario />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/evento/:id" element={<VerMasEvento />} />
-          <Route path="/noticia/:id" element={<VerMasNoticia />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<ProfileUser />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/horarios" element={<Horario />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/crear-carrera" element={<CrearCarrera />} />
+        <Route path="/carreras-tecnologicas" element={<CarrerasTecnologicas />} />
+      </Routes>
     </Router>
   );
 }
