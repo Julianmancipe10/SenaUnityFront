@@ -1,5 +1,5 @@
 .crear-carrera-container {
-  max-width: 800px;
+  max-width: 600px; /* Reducido de 800px a 600px */
   margin: 2rem auto;
   padding: 2rem;
   background-color: #ffffff;
@@ -12,6 +12,7 @@
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .crear-carrera-form {
@@ -29,6 +30,7 @@
 .form-group label {
   color: #333;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .form-group input,
@@ -38,6 +40,7 @@
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  font-family: 'Poppins', sans-serif !important; /* Aplicado aquí */
 }
 
 .form-group input:focus,
@@ -59,8 +62,9 @@
   border-radius: 5px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   margin-top: 1rem;
+  font-family: 'Poppins', sans-serif !important; /* Aplicado aquí */
 }
 
 .btn-crear:hover {
@@ -70,6 +74,36 @@
 .btn-crear:active {
   transform: translateY(0);
 }
+
+.btn-crear:disabled {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid transparent; /* Base border */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.message.success {
+  background-color: #e6ffed; /* Un verde más claro y suave */
+  color: #2f855a; /* Un verde oscuro para el texto, buena legibilidad */
+  border-color: #9ae6b4; /* Un borde verde que complementa */
+}
+
+.message.error {
+  background-color: #ffebee; /* Un rojo muy claro */
+  color: #c53030; /* Un rojo oscuro para el texto */
+  border-color: #feb2b2; /* Un borde rojo claro */
+}
+
 
 @media (max-width: 768px) {
   .crear-carrera-container {
@@ -81,3 +115,20 @@
     padding: 0.8rem 1.5rem;
   }
 }
+
+/* Eliminamos las reglas específicas anteriores para input, textarea, select y button
+   ya que hemos aplicado 'Poppins' directamente o se heredará. 
+   Si quieres mantener una fuente diferente para estos y solo 'Poppins' para títulos/labels,
+   ajusta las reglas según sea necesario.
+*/
+
+/* .crear-carrera-container input[type="text"],
+.crear-carrera-container input[type="number"],
+.crear-carrera-container textarea,
+.crear-carrera-container select {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.crear-carrera-container button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+} */

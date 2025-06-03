@@ -5,20 +5,53 @@ import './CarrerasTecnologicas.css';
 
 const CarrerasTecnologicas = () => {
   const navigate = useNavigate();
-  const [carreras] = useState([
+
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [carreras, setCarreras] = useState([
     {
       id: 1,
       titulo: 'COCINA',
       tipo: 'Carrera técnica',
       horas: 2200,
-      descripcion: 'Recibe y maneja materias primas para la elaboración de alimentos con estándares de calidad, apoya servicios de alimentación bajo los parámetros de la seguridad alimentaria.',
+      descripcion: 'Recibe y maneja materias primas...',
       tituloObtener: 'TÉCNICO EN COCINA'
     }
   ]);
 
+  const carrerasDisponibles = [
+    { id: 1, titulo: 'COCINA', tipo: 'Carrera técnica' },
+    { id: 2, titulo: 'Desarrollo de Software', tipo: 'Tecnólogo' },
+    { id: 3, titulo: 'Electricidad Industrial', tipo: 'Técnico' },
+    { id: 4, titulo: 'Gestión Administrativa', tipo: 'Técnico' }
+  ];
+
+  const [busqueda, setBusqueda] = useState('');
+
   const irACrearCarrera = () => {
     navigate('/crear-carrera');
   };
+
+  const agregarCarrera = (carrera) => {
+    const yaExiste = carreras.some(c => c.id === carrera.id);
+    if (!yaExiste) {
+      setCarreras([...carreras, {
+        ...carrera,
+        descripcion: 'Descripción temporal',
+        tituloObtener: `TÍTULO EN ${carrera.titulo.toUpperCase()}`,
+        horas: 1800
+      }]);
+    }
+  };
+
+  const eliminarCarrera = (id) => {
+    setCarreras(carreras.filter(c => c.id !== id));
+  };
+
+  const filtradas = carrerasDisponibles.filter(c =>
+    c.titulo.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  const estaAgregada = (id) => carreras.some(c => c.id === id);
 
   return (
     <div className="carreras-tecnologicas-page">
@@ -26,7 +59,7 @@ const CarrerasTecnologicas = () => {
       <div className="carreras-tecnologicas-container">
         <div className="header-section">
           <h1>Carreras Tecnológicas</h1>
-          <button onClick={irACrearCarrera} className="btn-crear">
+          <button onClick={() => setMostrarModal(true)} className="btn-crear">
             Agregar Carrera
           </button>
         </div>
@@ -49,11 +82,50 @@ const CarrerasTecnologicas = () => {
                   <h4>TÍTULO A OBTENER:</h4>
                   <p>{carrera.tituloObtener}</p>
                 </div>
+                <button className="btn-eliminar" onClick={() => eliminarCarrera(carrera.id)}>Eliminar</button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {mostrarModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Buscar Carrera</h2>
+            <input
+              type="text"
+              placeholder="Buscar por nombre..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+            />
+
+            <ul className="lista-carreras">
+              {filtradas.map((carrera) => (
+                <li key={carrera.id} className="modal-item">
+                  <span>{carrera.titulo} - {carrera.tipo}</span>
+                  {estaAgregada(carrera.id) ? (
+                    <button onClick={() => eliminarCarrera(carrera.id)} className="btn-eliminar">
+                      Eliminar
+                    </button>
+                  ) : (
+                    <button onClick={() => agregarCarrera(carrera)} className="btn-agregar">
+                      Agregar
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            <button className="btn-ir-crear" onClick={irACrearCarrera}>
+              Crear Nueva Carrera
+            </button>
+            <button className="btn-cerrar" onClick={() => setMostrarModal(false)}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
