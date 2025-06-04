@@ -14,7 +14,8 @@ const CarrerasTecnologicas = () => {
       tipo: 'Carrera técnica',
       horas: 2200,
       descripcion: 'Recibe y maneja materias primas...',
-      tituloObtener: 'TÉCNICO EN COCINA'
+      tituloObtener: 'TÉCNICO EN COCINA',
+      visibleHasta: '2024-12-31' // Ejemplo de fecha para la carrera inicial
     }
   ]);
 
@@ -35,10 +36,14 @@ const CarrerasTecnologicas = () => {
     const yaExiste = carreras.some(c => c.id === carrera.id);
     if (!yaExiste) {
       setCarreras([...carreras, {
-        ...carrera,
-        descripcion: 'Descripción temporal',
-        tituloObtener: `TÍTULO EN ${carrera.titulo.toUpperCase()}`,
-        horas: 1800
+        ...carrera, // Propaga las propiedades de la carrera seleccionada
+        // Asegúrate de que las carreras agregadas tengan 'visibleHasta'
+        // Si vienen de 'carrerasDisponibles' que no lo tienen, puedes poner un valor por defecto
+        // o idealmente, las carreras creadas desde el formulario ya lo traerán.
+        descripcion: carrera.descripcion || 'Descripción temporal',
+        tituloObtener: carrera.tituloObtener || `TÍTULO EN ${carrera.titulo.toUpperCase()}`,
+        horas: carrera.horas || 1800,
+        visibleHasta: carrera.visibleHasta || null // O una fecha por defecto, o manejarlo si es null
       }]);
     }
   };
@@ -82,7 +87,12 @@ const CarrerasTecnologicas = () => {
                   <h4>TÍTULO A OBTENER:</h4>
                   <p>{carrera.tituloObtener}</p>
                 </div>
-                <button className="btn-eliminar" onClick={() => eliminarCarrera(carrera.id)}>Eliminar</button>
+                {carrera.visibleHasta && (
+                  <div className="visible-hasta-info">
+                    <p><strong>Visible hasta:</strong> {new Date(carrera.visibleHasta).toLocaleDateString()}</p>
+                  </div>
+                )}
+                {/* Se elimina el botón de eliminar */}
               </div>
             </div>
           ))}
