@@ -117,5 +117,23 @@
   .horario-container {
     margin-top: 120px;
   }
+  
+  .horario-main {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  .paso {
+    padding: 0 10px;
+    gap: 15px;
+  }
+  
+  .paso h2 {
+    font-size: 16px;
+  }
+  
+  .paso img {
+    max-width: 100%;
+  }
 }
 

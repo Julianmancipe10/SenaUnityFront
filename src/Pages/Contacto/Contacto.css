@@ -97,4 +97,35 @@
   .contacto-container {
     margin-top: 120px;
   }
+  
+  .contacto-main {
+    padding: 1rem;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contacto-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .contacto-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-item {
+    gap: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+  }
+  
+  .btn-enviar {
+    padding: 0.8rem 1.5rem;
+  }
 }

@@ -192,12 +192,22 @@ nav ul li a:hover {
     z-index: 1000 !important;
   }
   
+  .imgSenaUnity {
+    height: 35px !important;
+    order: 0 !important;
+    margin: 2px 0 !important;
+    align-self: flex-end !important; /* Alinea a la derecha */
+    margin-left: auto !important; /* Empuja hacia la derecha */
+  }
+  
   .DivHeader h1 {
-    font-size: 32px !important; /* Reducido un poco el tamaño */
-    margin: 0 !important;
+    font-size: 32px !important;
+    margin: -10px 0 0 0 !important; /* Ajustado el margen superior a -10px */
     padding: 0 !important;
     line-height: 1 !important;
     order: 1 !important;
+    text-align: center !important;
+    width: 100% !important;
   }
   
   .LogoSena {
@@ -218,23 +228,27 @@ nav ul li a:hover {
     order: 3 !important;
   }
   
-  .imgSenaUnity {
-    height: 35px !important; /* Reducido el tamaño */
-    margin: 2px 0 !important; /* Reducido el margen */
-    order: 4 !important;
-  }
-  
   nav {
     margin-top: 4px !important; /* Reducido el margen superior */
     order: 5 !important;
   }
   
   nav ul {
-    gap: 4px !important; /* Reducido el espacio entre elementos de navegación */
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  
+  .iten {
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
   }
   
   nav ul li a {
-    padding: 2px 0 !important; /* Reducido el padding */
+    padding: 3px 0 !important;
+    width: 100% !important;
+    font-size: 1rem !important;
   }
   
   body {
@@ -483,79 +497,3 @@ nav ul li a:hover {
 }
 
 /* Media query específico para 481px */
-@media (max-width: 481px) {
-  .DivHeader {
-    height: auto;
-    padding: 8px 10px 4px 10px;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    border-bottom: 1px solid #ffffff;
-  }
-
-  .DivHeader h1 {
-    font-size: 32px;
-    order: 1;
-    text-align: center !important;
-    margin: 0;
-    width: 100%;
-    line-height: 1;
-  }
-
-  .LogoSena {
-    height: 25px;
-    order: 2;
-    margin: 2px 0;
-  }
-
-  .logo-container {
-    order: 3;
-    margin: 2px 0;
-    align-self: flex-start;
-  }
-
-  .centro-comercio-text {
-    font-size: 12px;
-    text-align: left;
-    order: 3;
-    margin: 2px 0;
-    line-height: 1.2;
-  }
-
-  nav {
-    order: 4;
-    width: 100%;
-    margin-top: 4px;
-    align-self: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    width: 100%;
-  }
-
-  .iten {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    width: 100%;
-  }
-
-  nav ul li a {
-    font-size: 15px;
-    text-align: left;
-    width: 100%;
-    padding: 2px 0;
-  }
-
-  .imgSenaUnity {
-    height: 35px;
-    order: 5;
-    margin: 2px 0;
-    align-self: flex-start;
-  }
-}
-
-  

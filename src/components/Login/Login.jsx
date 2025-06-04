@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../Login/Login.css";
-import { Header } from '../../Layouts/Header/Header';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/auth';
 
@@ -39,10 +38,6 @@ const Login = () => {
 
   return (
     <div className="divmayor">
-      <div className="HeaderDiseñoRegistro">
-        <Header />
-      </div>
-
       <div className="divPrincipal">
         {/* Sección de Bienvenida */}
         <div className="bienvenida">
