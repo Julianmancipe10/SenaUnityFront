@@ -31,41 +31,47 @@ export const Header = () => {
             <nav className='HeaderNav'>
                 <ul>
                     <li>
-                    <NavLink to="/" end 
-                             className={({isActive}) => 
+                    <NavLink to="/" end
+                             className={({isActive}) =>
                                `HeaderNavLink ${isActive ? "active" : ""}`
                              }>
                       Inicio
                     </NavLink>
-                    <NavLink to="/contacto" end 
-                             className={({isActive}) => 
+                    <NavLink to="/contacto" end
+                             className={({isActive}) =>
                                `HeaderNavLink ${isActive ? "active" : ""}`
                              }>
                       Contacto
                     </NavLink>
-                    <NavLink to="/horarios" end 
-                             className={({isActive}) => 
+                    <NavLink to="/horarios" end
+                             className={({isActive}) =>
                                `HeaderNavLink ${isActive ? "active" : ""}`
                              }>
                       Horarios
                     </NavLink>
-                    <NavLink to="/eventos" end 
-                             className={({isActive}) => 
+                    <NavLink to="/SoloEventoNoticia" end
+                             className={({isActive}) =>
                                `HeaderNavLink ${isActive ? "active" : ""}`
                              }>
                       Eventos y Noticias
                     </NavLink>
-                    <NavLink to="/admin/crear" end 
-                             className={({isActive}) => 
+                    <NavLink to="/eventos" end
+                             className={({isActive}) =>
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Eventos
+                    </NavLink>
+                    <NavLink to="/admin/crear" end
+                             className={({isActive}) =>
                                `HeaderNavLink ${isActive ? "active" : ""}`
                              }>
                       Crear Información
                     </NavLink>
                     {canAccessAdmin && (
-                      <NavLink 
-                        to="/admin" 
-                        end 
-                        className={({isActive}) => 
+                      <NavLink
+                        to="/admin"
+                        end
+                        className={({isActive}) =>
                           `HeaderNavLink ${isActive ? "active" : ""}`
                         }>
                         Administración
