@@ -1,0 +1,372 @@
+.crear-noticia-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 1.5px 0px 0px 0px #bfff71;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.crear-noticia-container h2 {
+  text-align: center;
+  color: #bfff71;
+  margin-bottom: 30px;
+}
+
+.crear-noticia-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #cccccc;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #bfff71;
+  box-shadow: 0 0 5px rgba(191, 255, 113, 0.5);
+}
+
+/* Estilos para el input de archivo personalizado */
+.form-group input[type="file"] {
+  /* Ocultar el input nativo visualmente */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.custom-file-input {
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-file-input:hover {
+  border-color: #555555;
+}
+
+.custom-file-input:active {
+   border-color: #bfff71;
+   box-shadow: 0 0 5px rgba(191, 255, 113, 0.5);
+}
+
+.custom-file-input.disabled {
+  background-color: #3a3a3a;
+  cursor: not-allowed;
+  border-color: #333333;
+  color: #999999;
+}
+
+.custom-file-input.disabled:hover {
+  border-color: #333333;
+}
+
+.file-button-text {
+  font-weight: bold;
+}
+
+.custom-file-input .file-button-text:first-child {
+  color: #ffffff;
+}
+
+.custom-file-input:not(.disabled) .file-button-text:first-child {
+   color: #ffffff; /* Texto blanco por defecto */
+}
+
+.custom-file-input:has(.file-name-display) .file-button-text:first-child {
+   color: #bfff71;
+}
+
+.file-name-display {
+  font-weight: normal;
+  color: #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+/* Estilos para múltiples vistas previas */
+.imagenes-preview-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+/* Tamaño más grande para las imágenes en vista previa temporal */
+.imagenes-preview-container.staged-preview-container {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.imagen-preview-item {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #333333;
+  aspect-ratio: 1 / 1; /* Mantiene una relación de aspecto cuadrada */
+}
+
+.imagen-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  display: block;
+}
+
+.remove-image-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.7); /* Rojo semi-transparente */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botón redondo */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.remove-image-button:hover {
+  background-color: rgba(255, 0, 0, 1); /* Rojo opaco al hover */
+  opacity: 1;
+}
+
+/* Specific styles for buttons in the staged preview to make them smaller and consistent */
+.imagenes-preview-container.staged-preview-container .preview-buttons button {
+  padding: 4px 15px; /* Adjusted padding for a smaller, consistent size */
+  font-size: 0.85rem; /* Adjusted font size */
+  line-height: 1.2; /* Ensure consistent line height */
+  height: auto; /* Prevent fixed height issues */
+  white-space: nowrap; /* Prevent text wrapping */
+  box-sizing: border-box; /* Include padding in size */
+  flex-grow: 0; /* Prevent buttons from growing */
+  flex-shrink: 0; /* Prevent buttons from shrinking below content */
+  width: auto; /* Let width be determined by content and padding */
+  display: inline-block; /* Ensure padding and width behave as expected */
+  text-align: center; /* Center text within the button */
+}
+
+/* Ensure background colors and text colors for staged buttons are specific */
+.imagenes-preview-container.staged-preview-container .preview-buttons .accept-button {
+    background-color: #bfff71;
+    color: #1e1e1e;
+}
+
+.imagenes-preview-container.staged-preview-container .preview-buttons .cancel-button {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+/* General styles for buttons (can be overridden) */
+.accept-button, .cancel-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.accept-button {
+  background-color: #bfff71;
+  color: #1e1e1e;
+}
+
+.accept-button:hover {
+  background-color: #a6e85c;
+}
+
+.cancel-button {
+  background-color: #ff6b6b;
+  color: #ffffff;
+}
+
+.cancel-button:hover {
+  background-color: #ff5252;
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #bfff71;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #a6e85c;
+}
+
+.preview-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Centrar los botones */
+}
+
+.staged-preview-section {
+  display: flex;
+  flex-direction: row; /* Arrange image container and button container side-by-side */
+  gap: 20px; /* Adjust gap as needed */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.staged-preview-section h4 {
+  margin-bottom: 10px; /* Add margin below the heading */
+}
+
+/* Add margin below the staged image preview container - Removed as gap on flex container handles spacing */
+/* .imagenes-preview-container.staged-preview-container {
+    margin-bottom: 15px;
+} */
+
+.imagen-preview-item {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #333333;
+  aspect-ratio: 1 / 1; /* Mantiene una relación de aspecto cuadrada */
+}
+
+.imagen-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  display: block;
+}
+
+.remove-image-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.7); /* Rojo semi-transparente */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botón redondo */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.remove-image-button:hover {
+  background-color: rgba(255, 0, 0, 1); /* Rojo opaco al hover */
+  opacity: 1;
+}
+
+/* Specific styles for buttons in the staged preview to make them smaller and consistent */
+/* Removed size-specific styles to allow general button styles to apply */
+/* .imagenes-preview-container.staged-preview-container .preview-buttons button {
+  padding: 4px 15px;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  height: auto;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+} */
+
+/* Ensure background colors and text colors for staged buttons are specific - Keep color overrides */
+.staged-preview-section .preview-buttons .accept-button {
+    background-color: #bfff71;
+    color: #1e1e1e;
+}
+
+.staged-preview-section .preview-buttons .cancel-button {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+/* General styles for buttons (can be overridden) */
+.accept-button, .cancel-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.accept-button {
+  background-color: #bfff71;
+  color: #1e1e1e;
+}
+
+.accept-button:hover {
+  background-color: #a6e85c;
+}
+
+.cancel-button {
+  background-color: #ff6b6b;
+  color: #ffffff;
+}
+
+.cancel-button:hover {
+  background-color: #ff5252;
+}
+
+.staged-preview-section .preview-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px;
+  align-self: flex-start; /* Align to the start of the cross axis */
+  margin-top: 100px; /* Add margin-top to move buttons down from the top */
+}

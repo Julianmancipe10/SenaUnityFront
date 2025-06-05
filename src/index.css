@@ -26,3 +26,7 @@ html, body {
   box-sizing: inherit;
 }
 
+.main-content {
+  margin-top: 80px; /* Ajusta este valor para que coincida con la altura de tu header */
+}
+

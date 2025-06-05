@@ -12,6 +12,8 @@ import Register from "./components/Register/Register";
 import AdminPanel from "./Pages/Admin/AdminPanel";
 import CarrerasTecnologicas from "./components/CarrerasTecnologicas/CarrerasTecnologicas"
 import CrearCarrera from "./components/CrearCarrera/CrearCarrera";
+import CrearEvento from "./Pages/EventosNoticias/CrearEvento/CrearEvento";
+import AdminCreationForms from "./Pages/Admin/AdminCreationForms/AdminCreationForms";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PERMISOS } from "./constants/roles";
@@ -32,7 +34,7 @@ function App() {
         <Route path="/noticias/ver/:id" element={<VerMasNoticia />} />
         <Route path="/carreras-tecnologicas" element={<CarrerasTecnologicas />} />
         <Route path="/crear-carrera" element={<CrearCarrera />} />
-
+        <Route path="/admin/crear" element={<AdminCreationForms />} />
 
         <Route
           path="/admin"

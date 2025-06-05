@@ -15,8 +15,12 @@ export const Header = () => {
   return ( 
     <div>
         <header className='DivHeader'>
-            <h1>Sena<span>Unity</span></h1>
-            <img className='LogoSena' src={imgLogoSenaGreen} alt="LogoSena" />
+            <h1 className='DivHeader-h1'>
+              Sena<span className='text-primary'>Unity</span>
+            </h1>
+            <img className='LogoSena' 
+                 src={imgLogoSenaGreen} 
+                 alt="LogoSena" />
             <div className="logo-container">
                 <div className="centro-comercio-text">
                     Centro de Comercio y Turismo<br />
@@ -24,30 +28,58 @@ export const Header = () => {
                 </div>
             </div>
 
-            <nav>
+            <nav className='HeaderNav'>
                 <ul>
-                    <li className='iten'>
-                    <NavLink to="/" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Inicio</NavLink>
-                    <NavLink to="/contacto" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Contacto</NavLink>
-                    <NavLink to="/horarios" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Horarios</NavLink>
-                    <NavLink to="/eventos" end className={({isActive}) => isActive ? "active" : ""} style={{textAlign: 'left'}}>Eventos y Noticias</NavLink>
+                    <li>
+                    <NavLink to="/" end 
+                             className={({isActive}) => 
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Inicio
+                    </NavLink>
+                    <NavLink to="/contacto" end 
+                             className={({isActive}) => 
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Contacto
+                    </NavLink>
+                    <NavLink to="/horarios" end 
+                             className={({isActive}) => 
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Horarios
+                    </NavLink>
+                    <NavLink to="/eventos" end 
+                             className={({isActive}) => 
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Eventos y Noticias
+                    </NavLink>
+                    <NavLink to="/admin/crear" end 
+                             className={({isActive}) => 
+                               `HeaderNavLink ${isActive ? "active" : ""}`
+                             }>
+                      Crear Información
+                    </NavLink>
                     {canAccessAdmin && (
                       <NavLink 
                         to="/admin" 
                         end 
-                        className={({isActive}) => isActive ? "active" : ""} 
-                        style={{textAlign: 'left'}}
-                      >
+                        className={({isActive}) => 
+                          `HeaderNavLink ${isActive ? "active" : ""}`
+                        }>
                         Administración
                       </NavLink>
                     )}
                     </li>
                 </ul>
             </nav>
-            <img className='imgSenaUnity' src={imgLogo} alt="SenaUnity" />
+            <img className='imgSenaUnity' 
+                 src={imgLogo} 
+                 alt="SenaUnity" />
         </header>
     </div>
   )
-
 };
- export default Header;
+
+export default Header;
