@@ -22,12 +22,7 @@ const Programas = () => {
       alt: "Carreras cortas",
       texto: "Carreras Cortas"
     },
-    {
-      id: 3,
-      imagen: "/imagenes/cursos-ingles.png",
-      alt: "Cursos de inglés",
-      texto: "Cursos de inglés"
-    }
+   
   ];
 
   const handleMouseEnter = (id) => {

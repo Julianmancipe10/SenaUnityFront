@@ -166,7 +166,7 @@
 
 
 
-/* estilos del  modal de busqueda */
+/* estilos del modal de busqueda */
 
 .modal-overlay {
   position: fixed;
@@ -174,25 +174,150 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75); /* Fondo más oscuro para mayor contraste */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque para el fondo */
 }
 
 .modal-content {
-  background: white;
+  background: #2c2c2c; /* Fondo oscuro para el modal, similar al tema */
+  color: #e0e0e0; /* Texto claro para contraste */
   padding: 2rem;
-  border-radius: 10px;
-  width: 400px;
-  max-height: 80vh;
-  overflow-y: auto;
+  border-radius: 12px; /* Bordes más redondeados */
+  width: 90%; /* Ancho responsivo */
+  max-width: 500px; /* Ancho máximo */
+  max-height: 85vh; /* Altura máxima responsiva */
+  overflow-y: auto; /* Scroll si el contenido excede */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.lista-carreras li {
+.modal-content h2 {
+  color: #39B54A; /* Color del título igual al botón principal */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif; /* Asegurar la fuente Poppins */
+  font-size: 1.8rem;
+}
+
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-content input[type="text"]::placeholder {
+  color: #888;
+}
+
+.modal-content input[type="text"]:focus {
+  outline: none;
+  border-color: #39B54A;
+  box-shadow: 0 0 0 2px rgba(57, 181, 74, 0.3);
+}
+
+.lista-carreras {
+  list-style: none; /* Quitar viñetas */
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.lista-carreras li.modal-item { /* Aumentar especificidad si es necesario */
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 0.5rem; /* Espacio entre items */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+  transition: background-color 0.2s ease;
+}
+
+.lista-carreras li.modal-item:last-child {
+  border-bottom: none; /* No borde para el último elemento */
+}
+
+.lista-carreras li.modal-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.lista-carreras li.modal-item span {
+  font-size: 0.95rem;
+  flex-grow: 1; /* Para que el texto ocupe el espacio disponible */
+}
+
+.lista-carreras .btn-agregar,
+.lista-carreras .btn-eliminar {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  margin-left: 1rem; /* Espacio entre el texto y el botón */
+  min-width: 90px; /* Ancho mínimo para los botones */
+  text-align: center;
+}
+
+.lista-carreras .btn-agregar {
+  background-color: #39B54A;
+  color: white;
+  border: none;
+}
+
+.lista-carreras .btn-agregar:hover {
+  background-color: #2f9e3d;
+}
+
+.lista-carreras .btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+
+.lista-carreras .btn-eliminar:hover {
+  background-color: #c0392b;
+}
+
+.modal-content .btn-ir-crear,
+.modal-content .btn-cerrar {
+  width: 100%; /* Que ocupen todo el ancho disponible */
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.75rem; /* Espacio entre botones */
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-content .btn-ir-crear {
+  background-color: #3498db; /* Un azul para acción secundaria positiva */
+  color: white;
+  border: none;
+}
+
+.modal-content .btn-ir-crear:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.modal-content .btn-cerrar {
+  background-color: #7f8c8d; /* Un gris para cerrar/cancelar */
+  color: white;
+  border: none;
+}
+
+.modal-content .btn-cerrar:hover {
+  background-color: #606c6d;
+  transform: translateY(-1px);
 }
 
 .btn-ir-crear,

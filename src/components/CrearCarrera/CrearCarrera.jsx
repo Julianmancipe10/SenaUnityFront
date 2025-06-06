@@ -8,10 +8,11 @@ const CrearCarrera = () => {
     tipo: '',
     horas: '',
     descripcion: '',
-    tituloObtener: ''
+    tituloObtener: '',
+    visibleHasta: '' // Nuevo estado para la fecha de fin de visibilidad
   });
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ type: '', text: '' }); // Para mensajes de éxito/error
+  const [message, setMessage] = useState({ type: '', text: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,23 +22,28 @@ const CrearCarrera = () => {
     }));
   };
 
-  const handleSubmit = async (e) => { // Hacemos la función asíncrona si llamas a una API
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage({ type: '', text: '' }); // Limpiar mensajes previos
+    setMessage({ type: '', text: '' });
 
-    // Simulación de llamada a API
+    // Validar que la fecha no sea en el pasado (opcional, pero recomendado)
+    if (carrera.visibleHasta && new Date(carrera.visibleHasta) < new Date().setHours(0,0,0,0)) {
+      setMessage({ type: 'error', text: 'La fecha de fin de visibilidad no puede ser en el pasado.' });
+      setLoading(false);
+      return;
+    }
+
     try {
-      // Aquí iría tu lógica para guardar la carrera, por ejemplo, una llamada a fetch o axios
-      // await api.crearCarrera(carrera);
       console.log('Nueva carrera:', carrera);
       setMessage({ type: 'success', text: '¡Carrera creada exitosamente!' });
-      setCarrera({ // Limpia el formulario
+      setCarrera({ 
         titulo: '',
         tipo: '',
         horas: '',
         descripcion: '',
-        tituloObtener: ''
+        tituloObtener: '',
+        visibleHasta: '' // Limpiar también el nuevo campo
       });
     } catch (error) {
       console.error('Error al crear la carrera:', error);
@@ -70,16 +76,16 @@ const CrearCarrera = () => {
           <div className="form-group">
             <label htmlFor="tipo">Tipo de Carrera:</label>
              <select
-    id="tipo"
-    name="tipo"
-    value={carrera.tipo}
-    onChange={handleChange}
-    required
-  >
-    <option value="">Seleccione una opción</option>
-    <option value="Técnico">Técnico</option>
-    <option value="Tecnólogo">Tecnólogo</option>
-  </select>
+                id="tipo"
+                name="tipo"
+                value={carrera.tipo}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Seleccione una opción</option>
+                <option value="Técnico">Técnico</option>
+                <option value="Tecnólogo">Tecnólogo</option>
+              </select>
           </div>
 
           <div className="form-group">
@@ -114,6 +120,20 @@ const CrearCarrera = () => {
               value={carrera.tituloObtener}
               onChange={handleChange}
               required
+            />
+          </div>
+
+          {/* Nuevo campo para la fecha de fin de visibilidad */}
+          <div className="form-group">
+            <label htmlFor="visibleHasta">Visible Hasta:</label>
+            <input
+              type="date"
+              id="visibleHasta"
+              name="visibleHasta"
+              value={carrera.visibleHasta}
+              onChange={handleChange}
+              // Puedes hacerlo opcional o requerido según tu necesidad
+              // required 
             />
           </div>
 
