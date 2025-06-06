@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { preguntarFAQ } from "../services/faqService";
 import "./FAQChat.css";
+import botAvatar from "../assets/images/boot.png";
 
 const MAX_CHARS = 500;
 const STORAGE_KEY = 'chat_history';
@@ -145,7 +146,7 @@ const FAQChat = () => {
       <div className="chat-header">
         <h3>
           <img 
-            src="/bot-avatar.png" 
+            src={botAvatar}
             alt="Bot Avatar" 
             className="bot-avatar"
             onError={(e) => e.target.style.display = 'none'}

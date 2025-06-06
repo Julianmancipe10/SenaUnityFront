@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './CrearNoticia.css';
 
-const CrearNoticia = () => {
+const CrearNoticia = ({ onSubmissionSuccess }) => {
   const [formData, setFormData] = useState({
     titulo: '',
     fecha: '',
@@ -95,16 +95,22 @@ const CrearNoticia = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Asegurarse de aceptar imágenes temporales si existen antes de enviar
+    // Ensure staged images are handled before sending
     if(stagedImages.length > 0) {
-        handleAcceptStagedImages(); // Mover temporales a la lista final
-        // Podrías querer mostrar un mensaje o esperar un momento aquí
-        // antes de permitir el envío real del formulario
+        alert("Por favor, acepta o cancela las imágenes en vista previa primero.");
         console.log("Por favor, acepta o cancela las imágenes en vista previa primero.");
         return; // Detener el envío hasta que se acepten/cancelen
+    }
+    
+    // Ensure there's at least one image if images are mandatory
+    // Assuming images are mandatory based on asterisk, adjust if needed
+    if(formData.imagenes.length === 0) {
+        alert("Por favor, carga al menos una imagen.");
+        console.log("No hay imágenes cargadas.");
+        return; // Stop submission if no images are uploaded
     }
 
     const formDataToSend = new FormData();
@@ -117,32 +123,57 @@ const CrearNoticia = () => {
         formDataToSend.append('enlace', formData.enlace);
     }
     
-    // Adjuntar cada archivo de la lista FINAL al FormData
+    // Adjuntar cada File object de la lista FINAL al FormData
     formData.imagenes.forEach((img, index) => {
       formDataToSend.append(`imagen_${index}`, img.file); // Usar el File object
     });
 
     console.log('Datos de la noticia a crear:', formData);
-    // Aquí iría la llamada a tu API backend para enviar formDataToSend
     
-    // Simulación de envío y limpieza
-    alert(`Noticia creada (simulada) con ${formData.imagenes.length} imágenes: ${formData.titulo}`);
-    
-    // Limpiar el formulario y las vistas previas después de un envío simulado exitoso
-    formData.imagenes.forEach(img => URL.revokeObjectURL(img.previewUrl)); // Limpiar URLs de objetos
-    setFormData({
-      titulo: '',
-      fecha: '',
-      descripcion: '',
-      imagenes: [],
-      enlace: '', // Clear enlace field
-    });
-    setSelectedFileNames([]); // Limpiar si aún se usa para algo
-    setStagedImages([]); // Asegurarse de que no queden temporales
-    // setPreviewUrl(null); // Ya no se usa
-    // setShowPreview(false); // Ya no se usa
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+    try {
+      // Replace simulation with actual API call
+      const response = await fetch('http://localhost:5000/api/noticias', { // Use your backend URL and endpoint
+        method: 'POST',
+        body: formDataToSend,
+        // Note: fetch with FormData usually does NOT need Content-Type header
+      });
+
+      if (!response.ok) {
+        // Handle HTTP errors
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+
+      const result = await response.json();
+      console.log('Noticia creada exitosamente:', result);
+      alert('Noticia creada exitosamente: ' + formData.titulo);
+      
+      // Call the success handler passed from the parent
+      if (onSubmissionSuccess) {
+        onSubmissionSuccess();
+      }
+
+      // Limpiar el formulario y las vistas previas después de un envío simulado exitoso
+      console.log('Clearing form');
+      // Clean up URLs for accepted images
+      formData.imagenes.forEach(img => URL.revokeObjectURL(img.previewUrl));
+      
+      setFormData({
+        titulo: '',
+        fecha: '',
+        descripcion: '',
+        imagenes: [], // Clear the accepted images list
+        enlace: '',
+      });
+      setSelectedFileNames([]); // Clear if still relevant for display
+      setStagedImages([]); // Ensure no temporary images remain
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
+    } catch (error) {
+      console.error('Error al crear noticia:', error);
+      alert('Error al crear noticia: ' + error.message);
     }
   };
 

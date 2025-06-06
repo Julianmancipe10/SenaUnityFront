@@ -45,13 +45,15 @@ body {
   
 .comp-card {
   width: 60%;
+  max-width: 810px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Cambiado de flex-start a center */
   justify-content: flex-start; /* Cambiado de center a flex-start para reducir espacio superior */
-  overflow: visible; /* Añadido para permitir que el contenido se desborde */
-  margin-left: auto; /* Cambiado de 0 a auto */
-  margin-right: auto; /* Añadido margin-right: auto */
+  overflow-x: hidden; /* Hide content that overflows horizontally */
+  overflow-y: visible; /* Keep vertical overflow visible if needed */
+  margin-left: auto; /* Centrar */
+  margin-right: auto; /* Centrar */
   margin-top: -5px; /* Mantener el margen superior actual */
   padding-top: 0; /* Asegurar que no haya padding superior */
   height: calc(100% - 30px); /* Reduciendo la altura total en 30px */
@@ -333,5 +335,51 @@ body {
   border-bottom: 2px solid #ffffff;
   margin-bottom: 0 !important;
   flex-wrap: nowrap;
+}
+  
+/* Styles for the three cards section in Inicio */
+.inicio-three-cards-section {
+  display: flex; /* Arrange cards in a row */
+  justify-content: center; /* Center the cards horizontally */
+  gap: 20px; /* Add space between cards */
+  margin-top: 30px; /* Add space above the cards */
+  padding: 0 20px; /* Add some padding on the sides */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.inicio-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  padding: 20px; /* Inner spacing */
+  flex: 1; /* Allow cards to grow and shrink */
+  max-width: 300px; /* Maximum width for each card */
+  text-align: center; /* Center text inside the card */
+}
+
+.inicio-card h3 {
+  color: #333; /* Dark text color for title */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.inicio-card p {
+  color: #666; /* Slightly lighter text for description */
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* Optional: Basic responsive adjustments */
+@media screen and (max-width: 768px) {
+  .inicio-three-cards-section {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    align-items: center; /* Center stacked cards */
+  }
+
+  .inicio-card {
+    width: 90%; /* Make cards take up more width on small screens */
+    max-width: none; /* Remove max-width constraint */
+  }
 }
   

@@ -12,29 +12,43 @@
   margin-left: 0;
   overflow: visible;
 }
-
 .cards-container {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: stretch;
   gap: 12px;
   width: 100%;
   position: relative;
   margin-left: 0;
-  overflow: visible;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical overflow */
+  white-space: nowrap; /* Prevent cards from wrapping */
+  /* overflow: visible; */
+  height: 390px; /* Changed to fixed height */
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.cards-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .card {
-  flex: 1;
+  flex: none; /* Prevent flex from growing/shrinking */
+  display: inline-block; /* Make cards display inline for white-space nowrap */
   background-color: white;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; /* Ensure content is clipped if it exceeds max-height */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-  display: flex;
   flex-direction: column;
   max-width: 258px;
+  max-height: 310px; /* Added max-height to control card height */
   padding: 0;
+  top: 10%;
   position: relative;
   border: 3px solid transparent;
 }
@@ -232,11 +246,11 @@
 }
 
 .slider-arrow.left {
-  left: 10px;
+  left: -80px;
 }
 
 .slider-arrow.right {
-  right: 10px;
+  right: -80px;
 }
 
 .slider-arrow:hover {
@@ -245,8 +259,8 @@
 }
 
 .slider-arrow svg {
-  width: 37px;
-  height: 37px;
+  width: 50px;
+  height: 50px;
   stroke-width: 6;
   stroke: #BFFF71;
   fill: none;
@@ -266,5 +280,37 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #ffffff !important;
+  cursor: pointer !important;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.dot.active {
+  background-color: #BFFF71 !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.dot:hover {
+  background-color: #BFFF71 !important;
+  transform: none !important;
+  transition: none !important;
+  width: 12px !important;
+  height: 12px !important;
 }
 

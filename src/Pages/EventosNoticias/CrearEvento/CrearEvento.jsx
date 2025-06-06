@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './CrearEvento.css';
 
-const CrearEvento = () => {
+const CrearEvento = ({ onSubmissionSuccess }) => {
   const [formData, setFormData] = useState({
     titulo: '',
     fecha: '',
@@ -62,38 +62,77 @@ const CrearEvento = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('handleSubmit reached');
+
+    if (showPreview) {
+      console.log("Please accept or cancel the image preview first.");
+      alert("Por favor, acepta o cancela la vista previa de la imagen antes de enviar.");
+      return;
+    }
+    
+    if (!formData.imagen || !formData.imagenId) {
+        alert("Por favor, selecciona y acepta una imagen.");
+        return;
+    }
+
     const formDataToSend = new FormData();
     formDataToSend.append('titulo', formData.titulo);
     formDataToSend.append('fecha', formData.fecha);
     formDataToSend.append('descripcion', formData.descripcion);
-    formDataToSend.append('enlace', formData.enlace);
-    formDataToSend.append('imagen', formData.imagen);
+    
+    if (formData.enlace) {
+        formDataToSend.append('enlace', formData.enlace);
+    }
+    
+    formDataToSend.append('imagen', formData.imagen.file); 
     formDataToSend.append('imagenId', formData.imagenId);
 
     console.log('Datos del evento a crear:', formData);
-    alert('Evento creado (simulado): ' + formData.titulo);
     
-    console.log('Clearing form');
-    if (previewUrl) {
-      URL.revokeObjectURL(previewUrl);
-    }
-    
-    setFormData({
-      titulo: '',
-      fecha: '',
-      descripcion: '',
-      enlace: '',
-      imagen: null,
-      imagenId: ''
-    });
-    setPreviewUrl(null);
-    setShowPreview(false);
-    setSelectedFileName('');
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+    try {
+      const response = await fetch('http://localhost:5000/api/eventos', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+
+      const result = await response.json();
+      console.log('Evento creado exitosamente:', result);
+      alert('Evento creado exitosamente: ' + formData.titulo);
+      
+      if (onSubmissionSuccess) {
+        onSubmissionSuccess();
+      }
+
+      console.log('Clearing form');
+      if (formData.imagen && formData.imagen.previewUrl) {
+          URL.revokeObjectURL(formData.imagen.previewUrl);
+      }
+
+      setFormData({
+        titulo: '',
+        fecha: '',
+        descripcion: '',
+        enlace: '',
+        imagen: null,
+        imagenId: ''
+      });
+      setPreviewUrl(null);
+      setShowPreview(false);
+      setSelectedFileName('');
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
+    } catch (error) {
+      console.error('Error al crear evento:', error);
+      alert('Error al crear evento: ' + error.message);
     }
   };
 

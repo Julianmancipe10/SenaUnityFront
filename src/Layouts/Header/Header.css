@@ -92,23 +92,19 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+  gap: 30px; /* Added space between navigation items */
 }
 
 /* 📌 Estilos de los enlaces */
 nav ul li {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
-  align-items: flex-start !important;
-
+  width: 100% !important; /* Keep this if needed for flex item sizing */
+  align-items: flex-start !important; /* Keep this if needed for alignment */
 }
 
 nav ul li a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  font-size: 21px;
+  font-size: 18px !important; /* Reduced font size */
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   position: relative;
@@ -116,8 +112,7 @@ nav ul li a {
   padding-bottom: 2px;
   line-height: 1.1;
   white-space: nowrap;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+  margin-right: 20px;
 }
 
 /* Clase para el ítem activo */
